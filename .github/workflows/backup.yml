@@ -12,10 +12,22 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 2
-          
-      - name: Update Backup Branch
+          fetch-depth: 0
+
+      - name: Configure Git
         run: |
-          git checkout -b backup origin/backup || git checkout backup
-          git reset --hard main~1
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+      - name: Create or Switch to Backup Branch
+        run: |
+          git checkout -b backup || git checkout backup
+
+      - name: Reset Backup Branch
+        run: |
+          git fetch origin main
+          git reset --hard main~1 
+
+      - name: Push Backup Branch
+        run: |
           git push origin backup --force
