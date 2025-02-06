@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  contents: write, workflows
+  contents: write
 
 jobs:
   update-backup:
@@ -24,7 +24,21 @@ jobs:
       - name: Reset Backup Branch
         run: |
           git fetch origin main
-          git reset --hard main~1 
+          git reset --hard main~1
+
+      # Needed to workflow permission issues
+      - name: Ignore Workflows Folder
+        run: |
+          echo ".github/workflows/" >> .gitignore
+          git add .gitignore
+          git commit -m "Ignore workflows folder in backup branch"
+
+      - name: Remove Workflows Folder
+        run: |
+          if [ -d ".github/workflows" ]; then
+            git rm -r --cached .github/workflows
+            git commit -m "Remove workflows folder from backup branch"
+          fi
 
       - name: Push Backup Branch
         run: |
