@@ -6,8 +6,8 @@ on:
       - main
 
 permissions:
-  contents: write
-  
+  contents: write, workflows
+
 jobs:
   update-backup:
     runs-on: ubuntu-latest
