@@ -1,0 +1,21 @@
+name: Sync Backup Branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+          
+      - name: Update Backup Branch
+        run: |
+          git checkout -b backup origin/backup || git checkout backup
+          git reset --hard main~1
+          git push origin backup --force
