@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1im14ilejp1q"]
+
+[ext_resource type="Texture2D" uid="uid://bwv7d1p22cp45" path="res://assets/sprites/characters/sticky.png" id="1_bd3aa"]
+[ext_resource type="Script" path="res://scripts/characters/player_movement.cs" id="1_g6svb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kkqc"]
+
+[node name="PlayerCharacter" type="CharacterBody2D"]
+script = ExtResource("1_g6svb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -19)
+texture = ExtResource("1_bd3aa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0kkqc")
+
+[node name="Timer" type="Timer" parent="."]
