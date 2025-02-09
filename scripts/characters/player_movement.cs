@@ -4,11 +4,12 @@ using System.Threading.Tasks;
 
 public partial class player_movement : StaticBody2D
 {
+	//important varibles
 	[Export]
 	public int TileSize { get; set; } = 64;
 	bool has_moved = false;
 	
-	
+	//input handling 
 	public Vector2 GetInput()
 	{
 
@@ -16,9 +17,14 @@ public partial class player_movement : StaticBody2D
 	   return direction;
 		
 	}
-	public async void Move(Vector2 direction) { 
+	/*movement method 
+	TODO 	- Implement TestMove
+			- fix the turns (kill me)
+	*/
+	public void Move(Vector2 direction) { 
 		if (has_moved == true)
 		{
+			//miserable implemntation of turns (does not work)
 				DelayMethod();
 		}
 		else if (direction != Vector2.Zero && has_moved == false)
@@ -29,6 +35,7 @@ public partial class player_movement : StaticBody2D
 			has_moved = true;
 		}
 	}
+	//delay method to create turns (work in progress)
 	private async void DelayMethod()
 {
 	var timer = GetTree().CreateTimer(4f);
@@ -49,6 +56,7 @@ public partial class player_movement : StaticBody2D
 		Position = Position.Snapped(Vector2.One * TileSize);
 		Position += Vector2.One * TileSize;
 	}
+	
 	private void OnTimerTimeout()
 	{
 		has_moved = false;
