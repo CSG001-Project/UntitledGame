@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1im14ilejp1q"]
+
+[ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_mvto6"]
+[ext_resource type="Texture2D" uid="uid://kfyvapxbo4o6" path="res://assets/sprites/characters/red_mist_squidward.png" id="2_e555w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kkqc"]
+size = Vector2(30, 30)
+
+[node name="Player" type="StaticBody2D"]
+script = ExtResource("1_mvto6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+top_level = true
+texture = ExtResource("2_e555w")
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0kkqc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
