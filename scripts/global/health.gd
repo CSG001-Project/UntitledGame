@@ -14,7 +14,7 @@ func set_max_health(value: int):
 	
 	if clamped_value != max_health:
 		var diffrence = clamped_value - max_health
-		max_health = value
+		max_health = clamped_value
 		max_health_changed.emit(diffrence)
 		
 		if health > max_health:
@@ -31,6 +31,7 @@ func set_health(value: int):
 	
 	if clamped_value != health:
 		var diffrence = clamped_value - health
+		health = clamped_value
 		health_changed.emit(diffrence)
 		
 		if health == 0:

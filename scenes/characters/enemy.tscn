@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgvrf52i125o"]
+[gd_scene load_steps=5 format=3 uid="uid://dgvrf52i125o"]
 
 [ext_resource type="Script" path="res://scripts/characters/enemy.gd" id="1_2vh2h"]
 [ext_resource type="Texture2D" uid="uid://kfyvapxbo4o6" path="res://assets/sprites/characters/red_mist_squidward.png" id="1_lyk7m"]
+[ext_resource type="Script" path="res://scripts/global/health.gd" id="2_w8qjy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5qhq"]
 size = Vector2(30, 30)
 
 [node name="Enemy" type="StaticBody2D"]
 script = ExtResource("1_2vh2h")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_w8qjy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.0418613, 0.191739, 1)

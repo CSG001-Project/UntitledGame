@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpb1ymh3buhn6"]
+
+[ext_resource type="Texture2D" uid="uid://14q2r0oglqn4" path="res://assets/sprites/effects/beamattack.png" id="1_1a28h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8563"]
+size = Vector2(16, 64)
+
+[node name="Beamattack" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("1_1a28h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_q8563")
