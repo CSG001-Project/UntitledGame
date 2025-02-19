@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cges8fuc52cx0" path="res://scenes/levels/level_0.tscn" id="2_2ehvs"]
 [ext_resource type="PackedScene" uid="uid://b1im14ilejp1q" path="res://scenes/characters/player.tscn" id="2_d8asp"]
-[ext_resource type="PackedScene" uid="uid://cpygk0nkmfx8w" path="res://scenes/characters/enemy.tscn" id="3_8up1a"]
+[ext_resource type="PackedScene" path="res://scenes/characters/enemy.tscn" id="3_8up1a"]
 
 [node name="main" type="Node"]
 

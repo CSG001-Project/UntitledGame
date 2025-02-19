@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpygk0nkmfx8w"]
+[gd_scene load_steps=4 format=3 uid="uid://dgvrf52i125o"]
 
 [ext_resource type="Script" path="res://scripts/characters/enemy.gd" id="1_2vh2h"]
 [ext_resource type="Texture2D" uid="uid://kfyvapxbo4o6" path="res://assets/sprites/characters/red_mist_squidward.png" id="1_lyk7m"]
