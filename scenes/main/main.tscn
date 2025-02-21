@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1n4cngpp7o2e"]
+[gd_scene load_steps=5 format=3 uid="uid://c1n4cngpp7o2e"]
 
 [ext_resource type="PackedScene" uid="uid://cges8fuc52cx0" path="res://scenes/levels/level_0.tscn" id="2_2ehvs"]
 [ext_resource type="PackedScene" uid="uid://b1im14ilejp1q" path="res://scenes/characters/player.tscn" id="2_d8asp"]
 [ext_resource type="PackedScene" uid="uid://dgvrf52i125o" path="res://scenes/characters/enemy.tscn" id="3_8up1a"]
+[ext_resource type="PackedScene" uid="uid://dpb1ymh3buhn6" path="res://scenes/effects/beam_attack.tscn" id="3_tdgxl"]
 
 [node name="main" type="Node"]
 
@@ -10,6 +11,7 @@
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_d8asp")]
 position = Vector2(304, 240)
+weapon = ExtResource("3_tdgxl")
 
 [node name="Enemy" parent="." instance=ExtResource("3_8up1a")]
 position = Vector2(272, 16)
