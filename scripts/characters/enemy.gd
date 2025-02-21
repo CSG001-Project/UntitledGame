@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 @onready var sprite = $Sprite2D
+@onready var health = $Health
 
 func _ready() -> void:
 	# Update sprite position, add self to the list of enemies that can take turns
@@ -11,7 +12,10 @@ func _ready() -> void:
 func turn() -> void:
 	# Wait for the previous enemy/player to move
 	await get_tree().physics_frame
-	
+
+	print(health.get_health())
+	if health.get_health() == 0:
+		queue_free()
 	# Simple move down for test
 	if !test_move(transform, Vector2.DOWN * 32):
 		position += Vector2.DOWN * 32

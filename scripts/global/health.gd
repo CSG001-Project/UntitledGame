@@ -3,7 +3,7 @@ extends Node
 
 signal max_health_changed(diff: int)
 signal health_changed(diff: int)
-signal health_depleted()
+signal health_depleted
 
 @export var max_health: int = 5 : set = set_max_health, get = get_max_health
 
@@ -24,9 +24,6 @@ func get_max_health() -> int:
 	return max_health
 
 func set_health(value: int):
-	if value < health:
-		return
-	
 	var clamped_value = clampi(value, 0, max_health)
 	
 	if clamped_value != health:
@@ -34,7 +31,7 @@ func set_health(value: int):
 		health = clamped_value
 		health_changed.emit(diffrence)
 		
-		if health == 0:
+		if health <= 0:
 			health_depleted.emit() 
 
 func get_health():

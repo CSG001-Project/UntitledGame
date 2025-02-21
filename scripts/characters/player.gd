@@ -16,6 +16,7 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_released("right_click"):
 		attack()
 		TurnManager.enemy_turn()
+
 	else:
 		var axis = get_input_axis()
 	
@@ -69,6 +70,11 @@ func attack() -> void:
 		weapon_instance.global_position = rightmost
 		weapon_instance.global_rotation_degrees -= 270
 	get_parent().add_child(weapon_instance)
-	
+
+#	var target = weapon_instance.get_collider()
+#	if target != null:
+#		print("Target Found")
+#		target.set_health(target.get_health() - 1)
+
 	await get_tree().create_timer(0.2).timeout
 	weapon_instance.queue_free()
