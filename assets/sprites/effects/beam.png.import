@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://14q2r0oglqn4"
-path="res://.godot/imported/beamattack.png-ee5bb19b270056adf2546be92a919212.ctex"
+path="res://.godot/imported/beam.png-7138c0ea521509e5e4b566e549def6a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/effects/beamattack.png"
-dest_files=["res://.godot/imported/beamattack.png-ee5bb19b270056adf2546be92a919212.ctex"]
+source_file="res://assets/sprites/effects/beam.png"
+dest_files=["res://.godot/imported/beam.png-7138c0ea521509e5e4b566e549def6a6.ctex"]
 
 [params]
 

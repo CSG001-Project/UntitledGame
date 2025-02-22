@@ -13,7 +13,7 @@ func turn() -> void:
 	# Wait for the previous enemy/player to move
 	await get_tree().physics_frame
 
-	if health.get_health() == 0:
+	if health.health == 0:
 		TurnManager.enemies.erase(self)
 		queue_free()
 	# Simple move down for test

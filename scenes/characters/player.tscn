@@ -1,14 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1im14ilejp1q"]
+[gd_scene load_steps=7 format=3 uid="uid://b1im14ilejp1q"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_mvto6"]
+[ext_resource type="PackedScene" uid="uid://3e26sbq051vt" path="res://scenes/items/weapons/beam.tscn" id="2_18xr4"]
 [ext_resource type="Script" path="res://scripts/global/health.gd" id="2_75q18"]
 [ext_resource type="Texture2D" uid="uid://kfyvapxbo4o6" path="res://assets/sprites/characters/red_mist_squidward.png" id="2_e555w"]
+[ext_resource type="Texture2D" uid="uid://dtfybu71qayc5" path="res://assets/sprites/ui/arrow.png" id="2_s8lw0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0kkqc"]
 size = Vector2(30, 30)
 
-[node name="Player" type="StaticBody2D"]
+[node name="Player" type="StaticBody2D" node_paths=PackedStringArray("weapon")]
 script = ExtResource("1_mvto6")
+weapon = NodePath("Beam")
+
+[node name="Beam" parent="." instance=ExtResource("2_18xr4")]
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_75q18")
@@ -18,6 +23,11 @@ top_level = true
 texture = ExtResource("2_e555w")
 
 [node name="Camera2D" type="Camera2D" parent="Sprite2D"]
+
+[node name="Arrow" type="Sprite2D" parent="Sprite2D"]
+z_index = 1
+texture = ExtResource("2_s8lw0")
+offset = Vector2(0, -24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0kkqc")

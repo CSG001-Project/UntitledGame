@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://3e26sbq051vt"]
+
+[ext_resource type="Script" path="res://scripts/items/weapons/beam.gd" id="1_7hdys"]
+[ext_resource type="Texture2D" uid="uid://14q2r0oglqn4" path="res://assets/sprites/effects/beam.png" id="1_nw6tl"]
+
+[node name="Beam" type="RayCast2D"]
+target_position = Vector2(0, -64)
+script = ExtResource("1_7hdys")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -32)
+texture = ExtResource("1_nw6tl")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
