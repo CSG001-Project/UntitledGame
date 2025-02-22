@@ -13,8 +13,8 @@ func turn() -> void:
 	# Wait for the previous enemy/player to move
 	await get_tree().physics_frame
 
-	print(health.get_health())
 	if health.get_health() == 0:
+		TurnManager.enemies.erase(self)
 		queue_free()
 	# Simple move down for test
 	if !test_move(transform, Vector2.DOWN * 32):

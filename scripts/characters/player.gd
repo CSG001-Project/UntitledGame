@@ -71,10 +71,5 @@ func attack() -> void:
 		weapon_instance.global_rotation_degrees -= 270
 	get_parent().add_child(weapon_instance)
 
-#	var target = weapon_instance.get_collider()
-#	if target != null:
-#		print("Target Found")
-#		target.set_health(target.get_health() - 1)
-
 	await get_tree().create_timer(0.2).timeout
 	weapon_instance.queue_free()
