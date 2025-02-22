@@ -11,6 +11,7 @@ func attack() -> void:
 	
 	# Set the rotation of the weapon to the mouse
 	rotation = angle
+	force_raycast_update()
 	
 	# Check if the weapon hit something
 	if is_colliding():
