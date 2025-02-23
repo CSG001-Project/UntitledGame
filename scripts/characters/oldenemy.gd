@@ -21,6 +21,7 @@ func turn() -> void:
 	if health.health == 0:
 		TurnManager.enemies.erase(self)
 		queue_free()
+
 	# AI sttuff that makes it move to player 
 	
 	# getting player position 

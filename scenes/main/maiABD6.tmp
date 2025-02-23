@@ -2,46 +2,36 @@
 
 [ext_resource type="PackedScene" uid="uid://cges8fuc52cx0" path="res://scenes/levels/level_0.tscn" id="2_2ehvs"]
 [ext_resource type="PackedScene" uid="uid://b1im14ilejp1q" path="res://scenes/characters/player.tscn" id="2_d8asp"]
-[ext_resource type="PackedScene" uid="uid://bjsv4ni33xtmj" path="res://scenes/characters/enemy.tscn" id="3_8up1a"]
+[ext_resource type="PackedScene" uid="uid://dgvrf52i125o" path="res://scenes/characters/enemy.tscn" id="3_8up1a"]
 [ext_resource type="Script" path="res://scripts/characters/enemy/enemies/jellyfish.gd" id="4_cvtuj"]
 
 [node name="main" type="Node"]
 
 [node name="Level0" parent="." instance=ExtResource("2_2ehvs")]
-position = Vector2(-272, -176)
 metadata/_edit_lock_ = true
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_d8asp")]
-metadata/_edit_group_ = true
 
 [node name="Enemy" parent="." instance=ExtResource("3_8up1a")]
-position = Vector2(320, 0)
-script = ExtResource("4_cvtuj")
-strength = 1
-defense = 0
-speed = 0.5
+position = Vector2(272, 16)
 metadata/_edit_lock_ = true
 
 [node name="Enemy2" parent="." instance=ExtResource("3_8up1a")]
-position = Vector2(160, -160)
-script = ExtResource("4_cvtuj")
-strength = 1
-defense = 0
-speed = 0.25
+position = Vector2(336, 48)
 metadata/_edit_lock_ = true
 
 [node name="Enemy3" parent="." instance=ExtResource("3_8up1a")]
-position = Vector2(480, 0)
+position = Vector2(69, 25)
 script = ExtResource("4_cvtuj")
 strength = 6
 defense = 0
-speed = 1.0
-metadata/_edit_lock_ = true
+speed = 1
+passed_turns = 0
 
 [node name="Enemy4" parent="." instance=ExtResource("3_8up1a")]
-position = Vector2(160, 0)
+position = Vector2(138, 50)
 script = ExtResource("4_cvtuj")
 strength = 1
 defense = 0
-speed = 1.0
-metadata/_edit_lock_ = true
+speed = 1
+passed_turns = 0
