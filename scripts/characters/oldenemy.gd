@@ -19,6 +19,7 @@ func turn() -> void:
 	# Simple move down for test
 	if !test_move(transform, Vector2.DOWN * 32):
 		position += Vector2.DOWN * 32
+		
 
 func update_sprite() -> void:
 	# Tween sprite to new position after turn is finished
