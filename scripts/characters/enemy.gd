@@ -19,7 +19,7 @@ func turn() -> void:
 		TurnManager.enemies.erase(self)
 		queue_free()
 
-	# Simple move down for test
+	# AI sttuff that makes it move to player 
 	var player_position: Vector2 = get_parent().get_node("Player").global_position
 	var angle = snappedf((player_position - global_position).angle(), deg_to_rad(90))
 
