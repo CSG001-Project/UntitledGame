@@ -16,9 +16,14 @@ func turn() -> void:
 	if health.health == 0:
 		TurnManager.enemies.erase(self)
 		queue_free()
+
 	# Simple move down for test
-	if !test_move(transform, Vector2.DOWN * 32):
-		position += Vector2.DOWN * 32
+	var player_position: Vector2 = get_parent().get_node("Player").global_position
+	var angle = snappedf((player_position - global_position).angle(), deg_to_rad(90))
+
+	var movement: Vector2 = Vector2(cos(angle), sin(angle))
+	if !test_move(transform, movement * 32):
+		position += movement * 32
 
 func update_sprite() -> void:
 	# Tween sprite to new position after turn is finished
