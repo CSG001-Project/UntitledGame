@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c632gx50g5qbs"]
+
+[ext_resource type="Script" path="res://scripts/characters/enemies/jellyfish.gd" id="1_81cih"]
+[ext_resource type="Script" path="res://scripts/global/health.gd" id="2_dvh32"]
+[ext_resource type="Texture2D" uid="uid://kfyvapxbo4o6" path="res://assets/sprites/characters/red_mist_squidward.png" id="3_ndkko"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5qhq"]
+size = Vector2(30, 30)
+
+[node name="Jellyfish" type="StaticBody2D" groups=["enemy"]]
+script = ExtResource("1_81cih")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_dvh32")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.0418613, 0.191739, 1)
+top_level = true
+texture = ExtResource("3_ndkko")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v5qhq")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[connection signal="health_depleted" from="Health" to="." method="die"]

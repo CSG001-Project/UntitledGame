@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends BaseCharacter
 
 @onready var timer = $Timer
 @onready var sprite = $Sprite2D
@@ -9,7 +9,8 @@ extends StaticBody2D
 const TILE_SIZE: int = 32
 
 func _ready() -> void:
-	# Update initial sprite position, update sprite when turn is finished
+	super()
+	# Update initial sprite position
 	sprite.global_position = global_position
 
 func _physics_process(_delta: float) -> void:
@@ -34,9 +35,6 @@ func _physics_process(_delta: float) -> void:
 				position += motion
 				# Now let the enemies calculate their turn
 				TurnManager.enemy_turn()
-	# Tween the sprite to the new position when the turn is finished
-	var tween = get_tree().create_tween()
-	tween.tween_property(sprite, "global_position", global_position, 0.1)
 
 func get_input_axis() -> Vector2:
 	var input = Vector2.ZERO
@@ -46,3 +44,8 @@ func get_input_axis() -> Vector2:
 	input.y = Input.get_axis("move_up", "move_down")
 	
 	return input
+
+func update_sprite() -> void:
+	# Tween the sprite to the new position when the turn is finished
+	var tween = get_tree().create_tween()
+	tween.tween_property(sprite, "global_position", global_position, 0.1)
