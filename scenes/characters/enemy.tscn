@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgvrf52i125o"]
+[gd_scene load_steps=5 format=3 uid="uid://bjsv4ni33xtmj"]
 
 [ext_resource type="Script" path="res://scripts/characters/enemy.gd" id="1_2vh2h"]
 [ext_resource type="Texture2D" uid="uid://kfyvapxbo4o6" path="res://assets/sprites/characters/red_mist_squidward.png" id="1_lyk7m"]
@@ -20,3 +20,6 @@ texture = ExtResource("1_lyk7m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_v5qhq")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
