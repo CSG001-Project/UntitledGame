@@ -19,9 +19,3 @@ metadata/_edit_lock_ = true
 [node name="Enemy2" parent="." instance=ExtResource("3_8up1a")]
 position = Vector2(336, 48)
 metadata/_edit_lock_ = true
-
-[node name="Container" type="Container" parent="."]
-offset_left = -575.0
-offset_top = -327.0
-offset_right = 575.0
-offset_bottom = 323.0
