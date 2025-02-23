@@ -9,8 +9,8 @@
 [node name="Level0" parent="." instance=ExtResource("2_2ehvs")]
 metadata/_edit_lock_ = true
 
-[node name="PlayerCharacter" parent="." instance=ExtResource("2_d8asp")]
-position = Vector2(155, 64)
+[node name="Player" parent="." instance=ExtResource("2_d8asp")]
+position = Vector2(368, 144)
 
 [node name="Enemy" parent="." instance=ExtResource("3_8up1a")]
 position = Vector2(272, 16)
