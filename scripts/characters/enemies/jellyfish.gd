@@ -38,14 +38,6 @@ func make_turn() -> void:
 		if !test_move(transform, movement * 32):
 			position += movement * 32
 		#an easy fix
-		elif (movement.x < -0.9 and movement.x > -1.1)  and (movement.y < 0.1 and movement.y > -0.1):
-			var v_movement: Vector2 = Vector2(0, 1)
-			if !test_move(transform, v_movement * 32):
-				position += v_movement * 32
-		elif (movement.x < 0.1 and movement.x > -0.1) and (movement.y > 0.9 and movement.y < 1.1):
-			var v_movement: Vector2 = Vector2(1, 0)
-			if !test_move(transform, v_movement * 32):
-				position += v_movement * 32
 
 func makepath() -> void: 
 	nav_agent.target_position = get_parent().get_node("Player").global_position
