@@ -1,10 +1,108 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1im14ilejp1q"]
+[gd_scene load_steps=21 format=3 uid="uid://b1im14ilejp1q"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_mvto6"]
 [ext_resource type="PackedScene" uid="uid://3e26sbq051vt" path="res://scenes/items/weapons/beam.tscn" id="2_18xr4"]
 [ext_resource type="Script" path="res://scripts/global/health.gd" id="2_75q18"]
-[ext_resource type="Texture2D" uid="uid://kfyvapxbo4o6" path="res://assets/sprites/characters/red_mist_squidward.png" id="2_e555w"]
 [ext_resource type="Texture2D" uid="uid://dtfybu71qayc5" path="res://assets/sprites/ui/arrow.png" id="2_s8lw0"]
+[ext_resource type="Texture2D" uid="uid://dd1e5dqsxs3cx" path="res://assets/sprites/characters/player/player_idle_left.png" id="4_ono01"]
+[ext_resource type="Texture2D" uid="uid://ca2ux1o4oiu35" path="res://assets/sprites/characters/player/player_idle_right.png" id="5_tnchy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv662"]
+atlas = ExtResource("4_ono01")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16y52"]
+atlas = ExtResource("4_ono01")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yki0x"]
+atlas = ExtResource("4_ono01")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpmlt"]
+atlas = ExtResource("4_ono01")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksy1p"]
+atlas = ExtResource("4_ono01")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3p0l"]
+atlas = ExtResource("4_ono01")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fysvx"]
+atlas = ExtResource("5_tnchy")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aig34"]
+atlas = ExtResource("5_tnchy")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljmeo"]
+atlas = ExtResource("5_tnchy")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve4nf"]
+atlas = ExtResource("5_tnchy")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bupia"]
+atlas = ExtResource("5_tnchy")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhfov"]
+atlas = ExtResource("5_tnchy")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3n82y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv662")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16y52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yki0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpmlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksy1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3p0l")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fysvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aig34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljmeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve4nf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bupia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhfov")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 6.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0kkqc"]
 size = Vector2(30, 30)
@@ -18,13 +116,15 @@ weapon = NodePath("Beam")
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_75q18")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 top_level = true
-texture = ExtResource("2_e555w")
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_3n82y")
+animation = &"idle_left"
 
-[node name="Camera2D" type="Camera2D" parent="Sprite2D"]
+[node name="Camera2D" type="Camera2D" parent="Sprite"]
 
-[node name="Arrow" type="Sprite2D" parent="Sprite2D"]
+[node name="Arrow" type="Sprite2D" parent="Sprite"]
 z_index = 1
 texture = ExtResource("2_s8lw0")
 offset = Vector2(0, -24)

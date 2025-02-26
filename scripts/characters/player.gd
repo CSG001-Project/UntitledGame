@@ -1,9 +1,8 @@
 extends BaseCharacter
 
 @onready var timer = $Timer
-@onready var sprite = $Sprite2D
-@onready var arrow = $Sprite2D/Arrow
-
+@onready var sprite = $Sprite
+@onready var arrow = $Sprite/Arrow
 @export var weapon: Node2D
 
 const TILE_SIZE: int = 32
@@ -19,8 +18,11 @@ func _physics_process(_delta: float) -> void:
 	# Visual indicator of where the player is aiming
 	arrow.rotation = lerp_angle(arrow.rotation, angle, 0.1)
 	
+	sprite.play("idle_"+direction)
+	
 	if Input.is_action_just_released("attack"):
 		# Wait for the attack to finish and then call the enemy turn
+		update_direction(sin(angle))
 		await weapon.attack()
 		TurnManager.enemy_turn()
 	else:
@@ -46,6 +48,8 @@ func get_input_axis() -> Vector2:
 	return input
 
 func update_sprite() -> void:
+	update_direction(sprite.to_local(global_position).x)
+	
 	# Tween the sprite to the new position when the turn is finished
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite, "global_position", global_position, 0.1)
