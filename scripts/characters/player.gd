@@ -3,7 +3,7 @@ extends BaseCharacter
 @onready var timer = $Timer
 @onready var sprite = $Sprite
 @onready var arrow = $Sprite/Arrow
-@export var weapon: PackedScene
+@export var weapon: Node2D
 
 const TILE_SIZE: int = 32
 
@@ -21,7 +21,7 @@ func _physics_process(_delta: float) -> void:
 	
 	sprite.play("idle_"+direction)
 	
-	if Input.is_action_just_released("attack") && weapon.is_ranged:
+	if Input.is_action_just_released("attack") and weapon.weapon_range > 1:
 		if try_shooting():
 			await shoot()
 			TurnManager.enemy_turn()
@@ -64,7 +64,7 @@ func try_shooting() -> bool:
 	var mouse_position: Vector2 = get_global_mouse_position()
 	var cool_name_for_a_variable: Vector2 = global_position - mouse_position
 	var sum_of_boolshit: int = snappedi(abs(cool_name_for_a_variable.x) + abs(cool_name_for_a_variable.y), 32);
-	if not sum_of_boolshit <= weapon.range * TILE_SIZE:
+	if not sum_of_boolshit <= weapon.weapon_range * TILE_SIZE:
 		return false
 	else:
 		if check_collisions(global_position, mouse_position):

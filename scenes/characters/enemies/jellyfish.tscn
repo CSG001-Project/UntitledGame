@@ -120,7 +120,4 @@ animation = &"idle_left"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_v5qhq")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
-
 [connection signal="health_depleted" from="Health" to="." method="die"]

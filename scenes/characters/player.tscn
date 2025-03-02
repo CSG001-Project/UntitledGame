@@ -107,12 +107,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0kkqc"]
 size = Vector2(30, 30)
 
-[node name="Player" type="StaticBody2D"]
+[node name="Player" type="StaticBody2D" node_paths=PackedStringArray("weapon")]
 position = Vector2(1, 1)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_mvto6")
-weapon = ExtResource("7_3gykj")
+weapon = NodePath("Harpoon")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_75q18")
