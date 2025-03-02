@@ -11,6 +11,7 @@ func get_item_data(slot_index: int, clear: bool = false) -> ItemData:
 	if item_data:
 		if clear:
 			inventory[slot_index] = null
+		
 		inventory_updated.emit()
 		return item_data
 	else:
@@ -21,7 +22,6 @@ func set_item_data(selected_item: ItemData, slot_index: int) -> ItemData:
 	
 	inventory[slot_index] = selected_item
 	inventory_updated.emit()
-	
 	return item_data
 
 func add_item_data(item: ItemData) -> bool:

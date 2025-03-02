@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b1im14ilejp1q" path="res://scenes/characters/player.tscn" id="2_d8asp"]
 [ext_resource type="PackedScene" uid="uid://c632gx50g5qbs" path="res://scenes/characters/enemies/jellyfish.tscn" id="3_r1d4u"]
 
-[node name="main" type="Node"]
+[node name="Main" type="Node"]
 
 [node name="Level0" parent="." instance=ExtResource("2_2ehvs")]
 

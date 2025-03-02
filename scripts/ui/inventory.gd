@@ -33,15 +33,11 @@ func populate_item_grid() -> void:
 		if item_data:
 			slot_instance.set_item(item_data)
 
-func on_slot_pressed(slot_index: int, input: bool) -> void:
-	match [selected_item, input]:
-		[null, true]:
-			selected_item = inventory_data.get_item_data(slot_index, true)
-		[_, true]:
-			selected_item = inventory_data.set_item_data(selected_item, slot_index)
-		[null, false]:
-			var item_data = inventory_data.get_item_data(slot_index)
-			
+func on_slot_pressed(slot_index: int) -> void:
+	if !selected_item:
+		selected_item = inventory_data.get_item_data(slot_index, true)
+	else:
+		selected_item = inventory_data.set_item_data(selected_item, slot_index)
 
 func update_held_item() -> void:
 	if selected_item:
