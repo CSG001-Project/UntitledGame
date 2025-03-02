@@ -31,6 +31,18 @@ window/stretch/scale_mode="integer"
 
 project/assembly_name="WorkInProgress"
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://config/": "orange",
+"res://docs/": "yellow",
+"res://export/": "green",
+"res://scenes/": "teal",
+"res://scripts/": "blue",
+"res://tests/": "purple"
+}
+
 [input]
 
 move_up={
