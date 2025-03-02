@@ -42,9 +42,10 @@ func _physics_process(_delta: float) -> void:
 func get_input_axis() -> Vector2:
 	var input = Vector2.ZERO
 	
-	# Input axis, ensure it is NOT normalised
-	input.x = Input.get_axis("move_left", "move_right")
-	input.y = Input.get_axis("move_up", "move_down")
+	if !input.y:
+		input.x = Input.get_axis("move_left", "move_right")
+	if !input.x:
+		input.y = Input.get_axis("move_up", "move_down")
 	
 	return input
 
