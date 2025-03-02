@@ -10,6 +10,7 @@ const TILE_SIZE: int = 32
 func _ready() -> void:
 	super()
 	# Update initial sprite position
+	sprite.top_level = true
 	sprite.global_position = global_position
 
 func _physics_process(_delta: float) -> void:

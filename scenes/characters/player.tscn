@@ -117,7 +117,6 @@ weapon = NodePath("Beam")
 script = ExtResource("2_75q18")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-top_level = true
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_3n82y")
 animation = &"idle_left"

@@ -7,6 +7,7 @@ extends BaseEnemy
 func _ready() -> void:
 	super()
 	
+	sprite.top_level = false
 	sprite.global_position = global_position
 
 func _physics_process(_delta: float) -> void:

@@ -112,7 +112,6 @@ script = ExtResource("1_81cih")
 script = ExtResource("2_dvh32")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-top_level = true
 sprite_frames = SubResource("SpriteFrames_ecp4c")
 animation = &"idle_left"
 
