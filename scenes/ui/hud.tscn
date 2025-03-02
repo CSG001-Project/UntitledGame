@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://45exv7p7tkwy"]
+
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_8egb5"]
+[ext_resource type="Texture2D" uid="uid://jwmtylfxvj1p" path="res://assets/sprites/ui/inventory.png" id="2_cspru"]
+[ext_resource type="Script" path="res://scripts/ui/status.gd" id="6_rqt52"]
+[ext_resource type="Script" path="res://scripts/ui/inventory.gd" id="11_sei86"]
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="12_32u8j"]
+[ext_resource type="Script" path="res://scripts/resources/inventory_data.gd" id="14_dbeij"]
+[ext_resource type="Script" path="res://scripts/ui/slot.gd" id="15_61pjg"]
+
+[sub_resource type="Resource" id="Resource_q062l"]
+script = ExtResource("14_dbeij")
+inventory = Array[ExtResource("12_32u8j")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+
+[node name="HUD" type="CanvasLayer"]
+layer = 0
+script = ExtResource("1_8egb5")
+
+[node name="Inventory" type="TextureRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -112.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 0
+texture = ExtResource("2_cspru")
+script = ExtResource("11_sei86")
+inventory_data = SubResource("Resource_q062l")
+
+[node name="ItemGrid" type="GridContainer" parent="Inventory"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 304.0
+offset_bottom = 112.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 9
+
+[node name="HeldItem" type="MarginContainer" parent="Inventory"]
+visible = false
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+script = ExtResource("15_61pjg")
+
+[node name="ItemTexture" type="TextureRect" parent="Inventory/HeldItem"]
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+
+[node name="Status" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_rqt52")
