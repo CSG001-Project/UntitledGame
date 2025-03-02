@@ -1,5 +1,5 @@
 extends Node
-
+class_name Ranged
 var enemies = []
 var player_turn = true
 

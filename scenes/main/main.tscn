@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1n4cngpp7o2e"]
+[gd_scene load_steps=5 format=3 uid="uid://c1n4cngpp7o2e"]
 
 [ext_resource type="PackedScene" uid="uid://cges8fuc52cx0" path="res://scenes/levels/level_0.tscn" id="2_2ehvs"]
 [ext_resource type="PackedScene" uid="uid://b1im14ilejp1q" path="res://scenes/characters/player.tscn" id="2_d8asp"]
 [ext_resource type="PackedScene" uid="uid://c632gx50g5qbs" path="res://scenes/characters/enemies/jellyfish.tscn" id="3_r1d4u"]
+[ext_resource type="PackedScene" uid="uid://beftrg1oetenf" path="res://scenes/items/weapons/harpoon.tscn" id="4_aut0l"]
 
 [node name="Main" type="Node"]
 
@@ -10,7 +11,11 @@
 
 [node name="Player" parent="." instance=ExtResource("2_d8asp")]
 position = Vector2(336, 176)
+weapon = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://ranged_weapon.gd"),"range":5,"is_ranged":true,"damage":1)
+
 metadata/_edit_group_ = true
 
 [node name="Jellyfish" parent="." instance=ExtResource("3_r1d4u")]
 position = Vector2(336, 48)
+
+[node name="Harpoon" parent="." instance=ExtResource("4_aut0l")]

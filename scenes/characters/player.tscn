@@ -1,11 +1,11 @@
 [gd_scene load_steps=21 format=3 uid="uid://b1im14ilejp1q"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_mvto6"]
-[ext_resource type="PackedScene" uid="uid://3e26sbq051vt" path="res://scenes/items/weapons/beam.tscn" id="2_18xr4"]
 [ext_resource type="Script" path="res://scripts/global/health.gd" id="2_75q18"]
 [ext_resource type="Texture2D" uid="uid://dtfybu71qayc5" path="res://assets/sprites/ui/arrow.png" id="2_s8lw0"]
 [ext_resource type="Texture2D" uid="uid://dd1e5dqsxs3cx" path="res://assets/sprites/characters/player/player_idle_left.png" id="4_ono01"]
 [ext_resource type="Texture2D" uid="uid://ca2ux1o4oiu35" path="res://assets/sprites/characters/player/player_idle_right.png" id="5_tnchy"]
+[ext_resource type="PackedScene" uid="uid://beftrg1oetenf" path="res://scenes/items/weapons/harpoon.tscn" id="7_3gykj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mv662"]
 atlas = ExtResource("4_ono01")
@@ -107,11 +107,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0kkqc"]
 size = Vector2(30, 30)
 
-[node name="Player" type="StaticBody2D" node_paths=PackedStringArray("weapon")]
+[node name="Player" type="StaticBody2D"]
+position = Vector2(1, 1)
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_mvto6")
-weapon = NodePath("Beam")
-
-[node name="Beam" parent="." instance=ExtResource("2_18xr4")]
+weapon = ExtResource("7_3gykj")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_75q18")
@@ -135,3 +136,5 @@ shape = SubResource("RectangleShape2D_0kkqc")
 wait_time = 0.1
 one_shot = true
 autostart = true
+
+[node name="Harpoon" parent="." instance=ExtResource("7_3gykj")]

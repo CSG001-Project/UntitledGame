@@ -106,6 +106,8 @@ animations = [{
 size = Vector2(30, 30)
 
 [node name="Jellyfish" type="StaticBody2D" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_81cih")
 
 [node name="Health" type="Node" parent="."]

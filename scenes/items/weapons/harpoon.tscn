@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://beftrg1oetenf"]
+
+[ext_resource type="Texture2D" uid="uid://s50i7tdbxhh1" path="res://assets/sprites/items/Super_Duper_Mega_Harpoooooon.png" id="1_pix54"]
+[ext_resource type="Script" path="res://ranged_weapon.gd" id="1_u6k25"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y5fra"]
+
+[node name="Weapon" type="Node"]
+script = ExtResource("1_u6k25")
+range = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pix54")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_y5fra")
