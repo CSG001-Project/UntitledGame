@@ -15,22 +15,38 @@ inventory = Array[ExtResource("12_32u8j")]([null, null, null, null, null, null, 
 layer = 0
 script = ExtResource("1_8egb5")
 
-[node name="Inventory" type="TextureRect" parent="."]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
 offset_left = -320.0
-offset_top = -112.0
-grow_horizontal = 0
-grow_vertical = 0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_lock_ = true
+
+[node name="Inventory" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -64.0
+offset_right = 160.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 0
 texture = ExtResource("2_cspru")
 script = ExtResource("11_sei86")
 inventory_data = SubResource("Resource_q062l")
+metadata/_edit_group_ = true
 
-[node name="ItemGrid" type="GridContainer" parent="Inventory"]
+[node name="ItemGrid" type="GridContainer" parent="Control/Inventory"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
@@ -40,7 +56,7 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 9
 
-[node name="HeldItem" type="MarginContainer" parent="Inventory"]
+[node name="HeldItem" type="MarginContainer" parent="Control/Inventory"]
 visible = false
 layout_mode = 0
 offset_right = 32.0
@@ -52,7 +68,24 @@ theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 script = ExtResource("15_61pjg")
 
-[node name="ItemTexture" type="TextureRect" parent="Inventory/HeldItem"]
+[node name="ItemTexture" type="TextureRect" parent="Control/Inventory/HeldItem"]
 layout_mode = 2
 mouse_filter = 2
 expand_mode = 1
+
+[node name="Menu" type="Container" parent="Control"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_right = -290.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Menu"]
+layout_mode = 2
