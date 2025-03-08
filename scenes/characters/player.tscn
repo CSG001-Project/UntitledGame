@@ -108,16 +108,18 @@ animations = [{
 size = Vector2(30, 30)
 
 [node name="Player" type="StaticBody2D" node_paths=PackedStringArray("weapon")]
+y_sort_enabled = true
 position = Vector2(1, 1)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_mvto6")
-weapon = NodePath("Harpoon")
+weapon = NodePath("Sprite/Harpoon")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_75q18")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_3n82y")
 animation = &"idle_left"
@@ -129,12 +131,13 @@ z_index = 1
 texture = ExtResource("2_s8lw0")
 offset = Vector2(0, -24)
 
+[node name="Harpoon" parent="Sprite" instance=ExtResource("7_3gykj")]
+position = Vector2(0, 8)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0kkqc")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.2
 one_shot = true
 autostart = true
-
-[node name="Harpoon" parent="." instance=ExtResource("7_3gykj")]

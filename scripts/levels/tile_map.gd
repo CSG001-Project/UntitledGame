@@ -18,7 +18,7 @@ func update_grid() -> void:
 		for y in range(astar_grid.region.position.y, astar_grid.region.end.y):
 			var id = Vector2i(x,y)
 			
-			if get_cell_source_id(id) == -1 or get_cell_atlas_coords(id) == Vector2i(0,0):
+			if get_cell_source_id(id) == -1 or get_cell_tile_data(id).get_custom_data("is_solid"):
 				astar_grid.set_point_solid(id, true)
 
 func find_path(start: Vector2i, end: Vector2i) -> Array:

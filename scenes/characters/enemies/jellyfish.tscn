@@ -106,6 +106,7 @@ animations = [{
 size = Vector2(30, 30)
 
 [node name="Jellyfish" type="StaticBody2D" groups=["enemy"]]
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_81cih")
@@ -114,6 +115,7 @@ script = ExtResource("1_81cih")
 script = ExtResource("2_dvh32")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_ecp4c")
 animation = &"idle_left"
 

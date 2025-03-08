@@ -4,13 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://b1im14ilejp1q" path="res://scenes/characters/player.tscn" id="2_d8asp"]
 [ext_resource type="PackedScene" uid="uid://c632gx50g5qbs" path="res://scenes/characters/enemies/jellyfish.tscn" id="3_r1d4u"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Level0" parent="." instance=ExtResource("2_2ehvs")]
+
+[node name="Jellyfish" parent="." instance=ExtResource("3_r1d4u")]
+position = Vector2(144, 48)
 
 [node name="Player" parent="." instance=ExtResource("2_d8asp")]
 position = Vector2(336, 176)
 metadata/_edit_group_ = true
-
-[node name="Jellyfish" parent="." instance=ExtResource("3_r1d4u")]
-position = Vector2(336, 48)

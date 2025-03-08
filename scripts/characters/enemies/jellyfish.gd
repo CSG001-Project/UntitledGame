@@ -41,4 +41,4 @@ func update_sprite() -> void:
 	
 	# Tween sprite to new position after turn is finished
 	var tween = get_tree().create_tween()
-	tween.tween_property(sprite, "global_position", global_position, 0.1)
+	tween.tween_property(sprite, "global_position", global_position, 0.2)

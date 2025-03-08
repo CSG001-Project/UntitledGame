@@ -17,6 +17,7 @@ script = ExtResource("1_8egb5")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
+anchors_preset = 0
 offset_left = -320.0
 offset_top = -180.0
 offset_right = 320.0

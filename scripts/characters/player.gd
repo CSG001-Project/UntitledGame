@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	var mouse_position: Vector2 = get_global_mouse_position()
-	var angle = snappedf((global_position - mouse_position).angle(), deg_to_rad(90)) - deg_to_rad(90)
+	var angle = snappedf((arrow.global_position - mouse_position).angle(), deg_to_rad(90)) - deg_to_rad(90)
 	# Visual indicator of where the player is aiming
 	arrow.rotation = lerp_angle(arrow.rotation, angle, 0.1)
 	
@@ -58,7 +58,7 @@ func update_sprite() -> void:
 	
 	# Tween the sprite to the new position when the turn is finished
 	var tween = get_tree().create_tween()
-	tween.tween_property(sprite, "global_position", global_position, 0.1)
+	tween.tween_property(sprite, "global_position", global_position, 0.2)
 
 func try_shooting() -> bool:
 	var mouse_position: Vector2 = get_global_mouse_position()
@@ -77,10 +77,9 @@ func check_collisions(start: Vector2, end: Vector2) -> bool:
 	var query = PhysicsRayQueryParameters2D.create(start, end)
 	var result = space_state.intersect_ray(query)
 	
-	if not result.is_empty():
-		return true
-	return false
+	return not result.is_empty()
 
+# get rid of this and implement weapon behaviour in the weapon itself
 func shoot():
 	var weapon_instance = weapon.instantiate()
 	var mouse_position: Vector2 = get_global_mouse_position()
