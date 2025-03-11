@@ -1,3 +1,3 @@
 extends CanvasLayer
 
-@onready var inventory = $Inventory
+@onready var inventory = $Control/Inventory

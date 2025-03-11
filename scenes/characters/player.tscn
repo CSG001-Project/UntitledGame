@@ -124,8 +124,6 @@ position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_3n82y")
 animation = &"idle_left"
 
-[node name="Camera2D" type="Camera2D" parent="Sprite"]
-
 [node name="Arrow" type="Sprite2D" parent="Sprite"]
 z_index = 1
 texture = ExtResource("2_s8lw0")
