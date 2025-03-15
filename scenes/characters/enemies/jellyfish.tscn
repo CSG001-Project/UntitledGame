@@ -105,10 +105,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5qhq"]
 size = Vector2(30, 30)
 
-[node name="Jellyfish" type="StaticBody2D" groups=["enemy"]]
+[node name="Jellyfish" type="Node2D" groups=["enemy"]]
 y_sort_enabled = true
-collision_layer = 2
-collision_mask = 3
 script = ExtResource("1_81cih")
 
 [node name="Health" type="Node" parent="."]
@@ -119,7 +117,9 @@ y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_ecp4c")
 animation = &"idle_left"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_v5qhq")
 
 [connection signal="health_depleted" from="Health" to="." method="die"]

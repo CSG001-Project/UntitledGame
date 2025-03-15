@@ -2,16 +2,17 @@ extends BaseCharacter
 
 @onready var timer = $Timer
 @onready var sprite = $Sprite
-@onready var arrow = $Sprite/Arrow
+@onready var arrow = $Arrow
+@onready var static_body = $StaticBody2D
 @export var weapon: Node2D
 
 const TILE_SIZE: int = 32
 
 func _ready() -> void:
 	super()
-	# Update initial sprite position
-	sprite.top_level = true
-	sprite.global_position = global_position
+	
+	static_body.top_level = true
+	static_body.global_position = global_position
 
 func _physics_process(_delta: float) -> void:
 	var mouse_position: Vector2 = get_global_mouse_position()
@@ -37,9 +38,9 @@ func _physics_process(_delta: float) -> void:
 			var motion = axis * TILE_SIZE
 			
 			# Check if the player can move to the tile, move the player to the tile (without the sprite)
-			if !test_move(transform, motion):
+			if !static_body.test_move(transform, motion):
 				timer.start()
-				position += motion
+				static_body.position += motion
 				# Now let the enemies calculate their turn
 				TurnManager.enemy_turn()
 
@@ -54,11 +55,20 @@ func get_input_axis() -> Vector2:
 	return input
 
 func update_sprite() -> void:
-	update_direction(sprite.to_local(global_position).x)
-	
+	update_direction(to_local(static_body.global_position).x)
 	# Tween the sprite to the new position when the turn is finished
 	var tween = get_tree().create_tween()
-	tween.tween_property(sprite, "global_position", global_position, 0.2)
+	var rotation_tween = get_tree().create_tween()
+	
+	tween.tween_property(self, "global_position", static_body.global_position, 0.2)
+	rotation_tween.set_trans(Tween.TRANS_CUBIC)
+	
+	if direction == "left":
+		rotation_tween.tween_property(sprite, "rotation_degrees", -15, 0.15).set_ease(Tween.EASE_IN)
+	else:
+		rotation_tween.tween_property(sprite, "rotation_degrees", 15, 0.15).set_ease(Tween.EASE_IN)
+	
+	rotation_tween.tween_property(sprite, "rotation_degrees", 0, 0.15).set_ease(Tween.EASE_OUT)
 
 func try_shooting() -> bool:
 	var mouse_position: Vector2 = get_global_mouse_position()

@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://ca2ux1o4oiu35" path="res://assets/sprites/characters/player/player_idle_right.png" id="5_tnchy"]
 [ext_resource type="PackedScene" uid="uid://beftrg1oetenf" path="res://scenes/items/weapons/harpoon.tscn" id="7_3gykj"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kkqc"]
+size = Vector2(30, 30)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mv662"]
 atlas = ExtResource("4_ono01")
 region = Rect2(0, 0, 32, 48)
@@ -104,19 +107,24 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kkqc"]
-size = Vector2(30, 30)
-
-[node name="Player" type="StaticBody2D" node_paths=PackedStringArray("weapon")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("weapon")]
 y_sort_enabled = true
 position = Vector2(1, 1)
-collision_layer = 2
-collision_mask = 3
 script = ExtResource("1_mvto6")
-weapon = NodePath("Sprite/Harpoon")
+weapon = NodePath("Harpoon")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_75q18")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_0kkqc")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
@@ -125,19 +133,13 @@ sprite_frames = SubResource("SpriteFrames_3n82y")
 animation = &"idle_left"
 
 [node name="Camera2D" type="Camera2D" parent="Sprite"]
+position_smoothing_enabled = true
 
-[node name="Arrow" type="Sprite2D" parent="Sprite"]
+[node name="Arrow" type="Sprite2D" parent="."]
 z_index = 1
+position = Vector2(0, -8)
 texture = ExtResource("2_s8lw0")
 offset = Vector2(0, -24)
 
-[node name="Harpoon" parent="Sprite" instance=ExtResource("7_3gykj")]
-position = Vector2(0, 8)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_0kkqc")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
-autostart = true
+[node name="Harpoon" parent="." instance=ExtResource("7_3gykj")]
+visible = false
