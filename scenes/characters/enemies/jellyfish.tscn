@@ -105,7 +105,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5qhq"]
 size = Vector2(30, 30)
 
-[node name="Jellyfish" type="Node2D" groups=["enemy"]]
+[node name="Jellyfish" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_81cih")
 
@@ -117,7 +117,7 @@ y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_ecp4c")
 animation = &"idle_left"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_v5qhq")

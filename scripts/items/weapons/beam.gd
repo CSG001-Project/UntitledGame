@@ -19,7 +19,7 @@ func attack() -> void:
 		
 		# If it is an enemy, deal damage
 		if target.is_in_group("enemy"):
-			target.damage(damage, 0);
+			target.get_parent().damage(damage, 0);
 	
 	# Flash the beam texture
 	sprite.visible = true

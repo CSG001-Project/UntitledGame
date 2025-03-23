@@ -22,11 +22,11 @@ func _physics_process(_delta: float) -> void:
 	
 	sprite.play("idle_"+direction)
 	
-	if Input.is_action_just_released("attack") and weapon.weapon_range > 1:
-		if try_shooting():
-			await shoot()
-			TurnManager.enemy_turn()
-	elif Input.is_action_just_released("attack"):
+	#if Input.is_action_just_released("attack") and weapon.weapon_range > 1:
+		#if try_shooting():
+			#await shoot()
+			#TurnManager.enemy_turn()
+	if Input.is_action_just_released("attack"):
 		# Wait for the attack to finish and then call the enemy turn
 		update_direction(sin(angle))
 		await weapon.attack()
@@ -90,12 +90,12 @@ func check_collisions(start: Vector2, end: Vector2) -> bool:
 	return not result.is_empty()
 
 # get rid of this and implement weapon behaviour in the weapon itself
-func shoot():
-	var weapon_instance = weapon.instantiate()
-	var mouse_position: Vector2 = get_global_mouse_position()
-	mouse_position.x = snappedi(mouse_position.x, 32)
-	mouse_position.y = snappedi(mouse_position.y, 32)
-	weapon_instance.global_rotation = (global_position - mouse_position).angle()
-	
-	while not weapon_instance.global_position.x.is_equal_approx(mouse_position.x) and weapon_instance.global_position.y.is_equal_approx(mouse_position.y):
-		weapon_instance.position = weapon_instance.position.move_toward(mouse_position, 1)
+#func shoot():
+	#var weapon_instance = weapon.instantiate()
+	#var mouse_position: Vector2 = get_global_mouse_position()
+	#mouse_position.x = snappedi(mouse_position.x, 32)
+	#mouse_position.y = snappedi(mouse_position.y, 32)
+	#weapon_instance.global_rotation = (global_position - mouse_position).angle()
+	#
+	#while not weapon_instance.global_position.x.is_equal_approx(mouse_position.x) and weapon_instance.global_position.y.is_equal_approx(mouse_position.y):
+		#weapon_instance.position = weapon_instance.position.move_toward(mouse_position, 1)
