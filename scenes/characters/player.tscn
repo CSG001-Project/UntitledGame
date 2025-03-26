@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dtfybu71qayc5" path="res://assets/sprites/ui/arrow.png" id="2_s8lw0"]
 [ext_resource type="Texture2D" uid="uid://dd1e5dqsxs3cx" path="res://assets/sprites/characters/player/player_idle_left.png" id="4_ono01"]
 [ext_resource type="Texture2D" uid="uid://ca2ux1o4oiu35" path="res://assets/sprites/characters/player/player_idle_right.png" id="5_tnchy"]
-[ext_resource type="PackedScene" uid="uid://3e26sbq051vt" path="res://scenes/items/weapons/beam.tscn" id="6_s2l43"]
+[ext_resource type="PackedScene" uid="uid://beftrg1oetenf" path="res://scenes/items/weapons/harpoon.tscn" id="6_klqnp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0kkqc"]
 size = Vector2(30, 30)
@@ -111,7 +111,7 @@ animations = [{
 y_sort_enabled = true
 position = Vector2(1, 1)
 script = ExtResource("1_mvto6")
-weapon = NodePath("Beam")
+weapon = NodePath("Harpoon")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_75q18")
@@ -141,4 +141,4 @@ position = Vector2(0, -8)
 texture = ExtResource("2_s8lw0")
 offset = Vector2(0, -24)
 
-[node name="Beam" parent="." instance=ExtResource("6_s2l43")]
+[node name="Harpoon" parent="." instance=ExtResource("6_klqnp")]
