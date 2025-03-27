@@ -4,13 +4,15 @@ extends BaseCharacter
 @onready var sprite = $Sprite
 @onready var arrow = $Arrow
 @onready var static_body = $StaticBody2D
+@onready var health = $Health
+@onready var healthbar = $HUD/Control/HealthBar
 @export var weapon: Node2D
 
 const TILE_SIZE: int = 32
 
 func _ready() -> void:
 	super()
-	
+	healthbar.set_health(health)
 	static_body.top_level = true
 	static_body.global_position = global_position
 
@@ -43,6 +45,9 @@ func _physics_process(_delta: float) -> void:
 				static_body.position += motion
 				# Now let the enemies calculate their turn
 				TurnManager.enemy_turn()
+	if Input.is_key_pressed(KEY_Z):
+		self.health.health -= 1
+		print(self.health.health)
 
 func get_input_axis() -> Vector2:
 	var input = Vector2.ZERO
@@ -51,7 +56,6 @@ func get_input_axis() -> Vector2:
 		input.x = Input.get_axis("move_left", "move_right")
 	if !input.x:
 		input.y = Input.get_axis("move_up", "move_down")
-	
 	return input
 
 func update_sprite() -> void:
@@ -73,9 +77,9 @@ func update_sprite() -> void:
 func try_shooting() -> bool:
 	print("Tried trying to shoot")
 	var mouse_position: Vector2 = get_global_mouse_position()
-	var cool_name_for_a_variable: Vector2 = mouse_position - (global_position - Vector2(16, 16))
-	var sum_of_boolshit: int = MishaMath.snapperi(abs(cool_name_for_a_variable.x) + abs(cool_name_for_a_variable.y), 32);
-	if not sum_of_boolshit <= weapon.weapon_range * TILE_SIZE:
+	var aim_offset: Vector2 = mouse_position - (global_position - Vector2(16, 16))
+	var snapped_distance: int = MishaMath.snapperi(abs(aim_offset.x) + abs(aim_offset.y), 32);
+	if not snapped_distance <= weapon.weapon_range * TILE_SIZE:
 		print("Too far")
 		return false
 	else:
