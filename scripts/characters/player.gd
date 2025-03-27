@@ -71,20 +71,24 @@ func update_sprite() -> void:
 	rotation_tween.tween_property(sprite, "rotation_degrees", 0, 0.15).set_ease(Tween.EASE_OUT)
 
 func try_shooting() -> bool:
+	print("Tried trying to shoot")
 	var mouse_position: Vector2 = get_global_mouse_position()
-	var cool_name_for_a_variable: Vector2 = global_position - mouse_position
-	var sum_of_boolshit: int = snappedi(abs(cool_name_for_a_variable.x) + abs(cool_name_for_a_variable.y), 32);
+	var cool_name_for_a_variable: Vector2 = mouse_position - (global_position - Vector2(16, 16))
+	var sum_of_boolshit: int = MishaMath.snapperi(abs(cool_name_for_a_variable.x) + abs(cool_name_for_a_variable.y), 32);
 	if not sum_of_boolshit <= weapon.weapon_range * TILE_SIZE:
+		print("Too far")
 		return false
 	else:
 		if check_collisions(global_position, mouse_position):
+			print("Wall")
 			return false
 		else:
 			return true
 
+
 func check_collisions(start: Vector2, end: Vector2) -> bool:
 	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(start, end)
+	var query = PhysicsRayQueryParameters2D.create(start, end, 1)
 	var result = space_state.intersect_ray(query)
 	
 	return not result.is_empty()

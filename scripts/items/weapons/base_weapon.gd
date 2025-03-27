@@ -8,36 +8,35 @@ class_name BaseWeapon
 @onready var sprite = $Sprite2D
 @onready var raycast = $RayCast2D
 
+var is_ranged_attacking:bool = false
+var player_pos: Vector2
+var velocity: Vector2
+var target: Vector2
+
+func _process(delta: float) -> void:
+	var speed = Vector2(10,10)
+	if is_ranged_attacking:
+		print("Attacking")
+		position += velocity * speed * delta
+		if (MishaMath.approx_equals(global_position.x, target.x, 16) and MishaMath.approx_equals(global_position.y, target.y, 16)):
+			print("Hitting")
+			hit()
+			is_ranged_attacking = false
+			global_position = player_pos
+			sprite.visible = false
+
 func attack_ranged():
-	var mouse_position: Vector2 = get_global_mouse_position()
-	mouse_position.x = snappedi(mouse_position.x, 32)
-	mouse_position.y = snappedi(mouse_position.y, 32)
-	global_rotation = (mouse_position - global_position).angle()
+	print("Tried shooting")
+	player_pos = global_position
+	target = get_global_mouse_position()
+	target.x = snappedi(target.x, 32)
+	target.y = snappedi(target.y, 32)
+	global_rotation = (target - global_position).angle()
 	
 	#temporary
 	sprite.visible = true
-	print("Visible")
-	while not (approx_equals(global_position.x, mouse_position.x) and approx_equals(global_position.y, mouse_position.y)):
-		print("Entered")
-		position = position.move_toward(mouse_position, 1)
-		raycast.force_raycast_update()
-		
-		# Check if the weapon hit something
-		if raycast.is_colliding():
-			print("Colided")
-			var target = raycast.get_collider()
-			
-			# If it is an enemy, deal damage
-			if target.is_in_group("enemy"):
-				target.get_parent().damage(damage, 0);
-				break
-	sprite.visible = false
-
-#godot is_approx_equals doesnt work for me for some reason((
-func approx_equals(var1, var2) -> bool:
-	if var1 < (var2 + 0.5) and var1 > (var2 - 0.5):
-		return true
-	return false
+	is_ranged_attacking = true
+	velocity = target.normalized()
 
 func attack_melee():
 	var mouse_position: Vector2 = get_global_mouse_position()
@@ -48,15 +47,21 @@ func attack_melee():
 	raycast.force_raycast_update()
 	
 	# Check if the weapon hit something
-	if raycast.is_colliding():
-		var target = raycast.get_collider()
-		
-		# If it is an enemy, deal damage
-		if target.is_in_group("enemy"):
-			target.get_parent().damage(damage, 0);
+	hit()
 	
 	# Flash the beam texture
 	sprite.visible = true
 	timer.start()
 	await timer.timeout
 	sprite.visible = false
+
+func hit() -> void:
+	raycast.force_raycast_update()
+	
+	# Check if the weapon hit something
+	if raycast.is_colliding():
+		var target = raycast.get_collider()
+		
+		# If it is an enemy, deal damage
+		if target.is_in_group("enemy"):
+			target.get_parent().damage(damage, 0);
