@@ -111,7 +111,7 @@ animations = [{
 y_sort_enabled = true
 position = Vector2(1, 1)
 script = ExtResource("1_mvto6")
-weapon = NodePath("Harpoon")
+weapon = NodePath("Beam")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_75q18")

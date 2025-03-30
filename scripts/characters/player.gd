@@ -5,7 +5,7 @@ extends BaseCharacter
 @onready var arrow = $Arrow
 @onready var static_body = $StaticBody2D
 @onready var health = $Health
-@onready var healthbar = $HUD/Control/HealthBar
+#@onready var healthbar = $HUD/Control/HealthBar
 @export var weapon: Node2D
 
 var is_in_action: bool = false

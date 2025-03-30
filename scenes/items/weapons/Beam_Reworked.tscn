@@ -1,20 +1,53 @@
 [gd_scene load_steps=3 format=3 uid="uid://cem3oxyutnx3u"]
 
-[ext_resource type="Script" path="res://scripts/items/weapons/base_weapon.gd" id="1_usw6w"]
+[ext_resource type="Script" path="res://scripts/items/weapons/base_weapon.gd" id="1_kp2fg"]
 [ext_resource type="Texture2D" uid="uid://14q2r0oglqn4" path="res://assets/sprites/effects/beam.png" id="2_v1n75"]
 
 [node name="BaseWeapon" type="Node2D"]
-script = ExtResource("1_usw6w")
-weapon_range = 0
+script = ExtResource("1_kp2fg")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, -64)
+target_position = Vector2(0, -50)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -32)
+position = Vector2(3.8743e-07, -24.5)
+scale = Vector2(0.4375, 0.765625)
+texture = ExtResource("2_v1n75")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(22.6955, -22.5545)
+rotation = 0.785398
+scale = Vector2(0.352077, 0.973814)
 texture = ExtResource("2_v1n75")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+target_position = Vector2(45, -45)
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+target_position = Vector2(-45, -45)
+
+[node name="RayCast2D4" type="RayCast2D" parent="."]
+target_position = Vector2(-45, 0)
+
+[node name="RayCast2D5" type="RayCast2D" parent="."]
+target_position = Vector2(45, 0)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-22, -22)
+rotation = -0.785398
+scale = Vector2(0.352077, 0.973814)
+texture = ExtResource("2_v1n75")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0.250003, 1.35003e-06)
+rotation = 1.5708
+scale = Vector2(0.352077, 1.37225)
+texture = ExtResource("2_v1n75")
