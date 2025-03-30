@@ -104,8 +104,10 @@ func check_collisions(start: Vector2, end: Vector2) -> bool:
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(start, end, 1)
 	var result = space_state.intersect_ray(query)
-	
-	if result.collider.is_in_group("enemy") && MishaMath.approx_equals(result.position.x, end.x, TILE_SIZE) && MishaMath.approx_equals(result.position.y, end.y, TILE_SIZE):
+	if not result.is_empty():
+		if result.collider.is_in_group("enemy") && MishaMath.approx_equals(result.position.x, end.x, TILE_SIZE) && MishaMath.approx_equals(result.position.y, end.y, TILE_SIZE):
+			return false
+		else:
+			return true
+	else:
 		return false
-	
-	return not result.is_empty()

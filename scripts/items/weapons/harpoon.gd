@@ -1,6 +1,10 @@
 extends BaseWeapon
 class_name Harpoon
 
+@onready var timer = $Timer
+@onready var sprite = $Sprite2D
+@onready var raycast = $RayCast2D
+
 func _process(delta: float) -> void:
 	var speed: float = 100
 	if is_ranged_attacking:
@@ -27,3 +31,14 @@ func attack_ranged():
 	while is_ranged_attacking:
 		timer.start()
 		await timer.timeout
+
+func hit() -> void:
+	raycast.force_raycast_update()
+	
+	# Check if the weapon hit something
+	if raycast.is_colliding():
+		var target = raycast.get_collider()
+		
+		# If it is an enemy, deal damage
+		if target.is_in_group("enemy"):
+			target.get_parent().damage(damage, 0);
