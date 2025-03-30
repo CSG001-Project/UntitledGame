@@ -12,40 +12,12 @@ class_name Beam
 @onready var raycast4 = $RayCast2D4
 @onready var raycast5 = $RayCast2D5
 
-func attack_ranged():
-	pass
-
-func _ready() -> void:
-	weapon_range = 0
-	damage = 1
-
-func _process(delta: float) -> void:
-	weapon_range = 0
-	damage = 1
-	var speed = Vector2(10,10)
-	if is_ranged_attacking:
-		print("Attacking")
-		position += velocity * speed * delta
-		if (MishaMath.approx_equals(global_position.x, target.x, 16) and MishaMath.approx_equals(global_position.y, target.y, 16)):
-			print("Hitting")
-			hit()
-			is_ranged_attacking = false
-			global_position = player_pos
-			sprite.visible = false
-
-
-
 func attack_melee():
 	var mouse_position: Vector2 = get_global_mouse_position()
 	var angle = snappedf((global_position - mouse_position).angle(), deg_to_rad(90)) - deg_to_rad(90)
 	
 	# Set the rotation of the weapon to the mouse
 	rotation = angle
-	raycast.force_raycast_update()
-	raycast2.force_raycast_update()
-	raycast3.force_raycast_update()
-	raycast4.force_raycast_update()
-	raycast5.force_raycast_update()
 	
 	# Check if the weapon hit something
 	hit()
@@ -70,26 +42,24 @@ func hit() -> void:
 	raycast5.force_raycast_update()
 	
 	# Check if the weapon hit something
-	if (raycast.is_colliding() || raycast2.is_colliding() || raycast3.is_colliding() || raycast4.is_colliding() || raycast5.is_colliding()):
+	# If it is an enemy, deal damage
+	if raycast.is_colliding():
 		var target = raycast.get_collider()
+		if target.is_in_group("enemy"):
+			target.get_parent().damage(damage, 0);
+	if raycast2.is_colliding():
 		var target2 = raycast2.get_collider()
+		if target2.is_in_group("enemy"):  
+			target2.get_parent().damage(damage, 0);
+	if raycast3.is_colliding(): 
 		var target3 = raycast3.get_collider()
+		if target3.is_in_group("enemy"):
+			target3.get_parent().damage(damage, 0);
+	if raycast4.is_colliding():
 		var target4 = raycast4.get_collider()
+		if target4.is_in_group("enemy"):
+			target4.get_parent().damage(damage, 0);
+	if raycast5.is_colliding():
 		var target5 = raycast5.get_collider()
-		
-		# If it is an enemy, deal damage
-		if target:
-			if target.is_in_group("enemy"):
-				target.get_parent().damage(damage, 0);
-		if target2:
-			if target2.is_in_group("enemy"):  
-				target2.get_parent().damage(damage, 0);
-		if target3: 
-			if target3.is_in_group("enemy"):
-				target3.get_parent().damage(damage, 0);
-		if target4:
-			if target4.is_in_group("enemy"):
-				target4.get_parent().damage(damage, 0);
-		if target5:
-			if target5.is_in_group("enemy"):
-				target5.get_parent().damage(damage, 0);
+		if target5.is_in_group("enemy"):
+			target5.get_parent().damage(damage, 0);

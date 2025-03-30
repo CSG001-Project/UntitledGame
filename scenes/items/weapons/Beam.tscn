@@ -5,6 +5,7 @@
 
 [node name="Beam" type="Node2D"]
 script = ExtResource("1_8p7q6")
+weapon_range = 0
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, -50)
