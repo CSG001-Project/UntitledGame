@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dtfybu71qayc5" path="res://assets/sprites/ui/arrow.png" id="2_s8lw0"]
 [ext_resource type="Texture2D" uid="uid://dd1e5dqsxs3cx" path="res://assets/sprites/characters/player/player_idle_left.png" id="4_ono01"]
 [ext_resource type="Texture2D" uid="uid://ca2ux1o4oiu35" path="res://assets/sprites/characters/player/player_idle_right.png" id="5_tnchy"]
-[ext_resource type="PackedScene" uid="uid://be180qu0k3bgl" path="res://scenes/items/weapons/Harpoonini_Attackini.tscn" id="6_ujn5c"]
+[ext_resource type="PackedScene" uid="uid://cdmxhfdarnol2" path="res://scenes/items/weapons/Beam.tscn" id="6_meqhw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0kkqc"]
 size = Vector2(30, 30)
@@ -141,4 +141,5 @@ position = Vector2(0, -8)
 texture = ExtResource("2_s8lw0")
 offset = Vector2(0, -24)
 
-[node name="Harpoon" parent="." instance=ExtResource("6_ujn5c")]
+[node name="Beam" parent="." instance=ExtResource("6_meqhw")]
+weapon_range = 0
