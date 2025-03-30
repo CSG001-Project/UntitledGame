@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdmxhfdarnol2"]
+[gd_scene load_steps=3 format=3 uid="uid://c8pkkmiw0sixk"]
 
 [ext_resource type="Script" path="res://scripts/items/weapons/make-the-beam-great-again.gd" id="1_8p7q6"]
 [ext_resource type="Texture2D" uid="uid://14q2r0oglqn4" path="res://assets/sprites/effects/beam.png" id="2_8hq4h"]
