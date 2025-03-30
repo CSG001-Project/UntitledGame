@@ -8,11 +8,14 @@ extends BaseCharacter
 @onready var healthbar = $HUD/Control/HealthBar
 @export var weapon: Node2D
 
+var is_in_action: bool = false
+
 const TILE_SIZE: int = 32
+const HALF_TILE: int = 16
 
 func _ready() -> void:
 	super()
-	healthbar.set_health(health)
+	#healthbar.set_health(health)
 	static_body.top_level = true
 	static_body.global_position = global_position
 
@@ -24,16 +27,20 @@ func _physics_process(_delta: float) -> void:
 	
 	sprite.play("idle_"+direction)
 	
-	if Input.is_action_just_released("attack") and weapon.weapon_range == 0:
+	if Input.is_action_just_released("attack") and weapon.weapon_range == 0 and !is_in_action:
 		# Wait for the attack to finish and then call the enemy turn
+		is_in_action = true
 		update_direction(sin(angle))
 		await weapon.attack_melee()
+		is_in_action = false
 		TurnManager.enemy_turn()
-	elif Input.is_action_just_released("attack") and weapon.weapon_range > 0:
+	elif Input.is_action_just_released("attack") and weapon.weapon_range > 0 and !is_in_action:
 		if try_shooting():
+			is_in_action = true
 			await weapon.attack_ranged()
+			is_in_action = false
 			TurnManager.enemy_turn()
-	else:
+	elif !is_in_action:
 		var axis = get_input_axis()
 		
 		if axis != Vector2.ZERO and TurnManager.player_turn and timer.is_stopped():
@@ -41,8 +48,10 @@ func _physics_process(_delta: float) -> void:
 			
 			# Check if the player can move to the tile, move the player to the tile (without the sprite)
 			if !static_body.test_move(transform, motion):
+				is_in_action = true
 				timer.start()
 				static_body.position += motion
+				is_in_action = false
 				# Now let the enemies calculate their turn
 				TurnManager.enemy_turn()
 	if Input.is_key_pressed(KEY_Z):
@@ -77,8 +86,9 @@ func update_sprite() -> void:
 func try_shooting() -> bool:
 	print("Tried trying to shoot")
 	var mouse_position: Vector2 = get_global_mouse_position()
-	var aim_offset: Vector2 = mouse_position - (global_position - Vector2(16, 16))
-	var snapped_distance: int = MishaMath.snapperi(abs(aim_offset.x) + abs(aim_offset.y), 32);
+	mouse_position.x = MishaMath.snapperi(mouse_position.x, TILE_SIZE) + HALF_TILE; mouse_position.y = MishaMath.snapperi(mouse_position.y, TILE_SIZE) + HALF_TILE
+	var aim_offset: Vector2 = mouse_position - global_position
+	var snapped_distance: int = MishaMath.snapperi(abs(aim_offset.x) + abs(aim_offset.y), TILE_SIZE);
 	if not snapped_distance <= weapon.weapon_range * TILE_SIZE:
 		print("Too far")
 		return false
@@ -94,5 +104,8 @@ func check_collisions(start: Vector2, end: Vector2) -> bool:
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(start, end, 1)
 	var result = space_state.intersect_ray(query)
+	
+	if result.collider.is_in_group("enemy") && MishaMath.approx_equals(result.position.x, end.x, TILE_SIZE) && MishaMath.approx_equals(result.position.y, end.y, TILE_SIZE):
+		return false
 	
 	return not result.is_empty()

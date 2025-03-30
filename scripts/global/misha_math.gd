@@ -2,7 +2,7 @@ extends Node
 
 #godot snappedi wont work so Im making my own
 func snapperi(var1: float, var2: int) -> int:
-	var result: int = roundi(var1 / var2) * var2
+	var result: int = floori(var1 / var2) * var2
 	return result
 
 #godot is_approx_equals doesnt work for me for some reason((

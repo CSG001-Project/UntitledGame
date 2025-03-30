@@ -118,7 +118,6 @@ sprite_frames = SubResource("SpriteFrames_ecp4c")
 animation = &"idle_left"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["enemy"]]
-collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_v5qhq")

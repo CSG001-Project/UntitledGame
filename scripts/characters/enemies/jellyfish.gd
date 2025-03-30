@@ -17,6 +17,7 @@ func _physics_process(_delta: float) -> void:
 func make_turn() -> void:
 	await get_tree().physics_frame
 	
+	print(global_position.x, " ", global_position.y)
 	var tile_map = get_parent().get_node("Level0/Layer0")
 	var player = get_parent().get_node("Player")
 	var path = tile_map.find_path(tile_map.local_to_map(tile_map.to_local(global_position)), tile_map.local_to_map(tile_map.to_local(player.global_position)))
