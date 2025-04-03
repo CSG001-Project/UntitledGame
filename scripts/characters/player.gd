@@ -5,7 +5,7 @@ extends BaseCharacter
 @onready var arrow = $Arrow
 @onready var static_body = $StaticBody2D
 @onready var health = $Health
-#@onready var healthbar = $HUD/Control/HealthBar
+@onready var healthbar = $"../HUD/Control/HealthBar"
 @export var weapon: Node2D
 
 var is_in_action: bool = false
@@ -15,7 +15,9 @@ const HALF_TILE: int = 16
 
 func _ready() -> void:
 	super()
-	#healthbar.set_health(health)
+	healthbar.set_health_bar(health.max_health, health.health)
+	if health:
+		health.connect("health_changed", _on_health_changed)
 	static_body.top_level = true
 	static_body.global_position = global_position
 
@@ -56,7 +58,11 @@ func _physics_process(_delta: float) -> void:
 				TurnManager.enemy_turn()
 	if Input.is_key_pressed(KEY_Z):
 		self.health.health -= 1
-		print(self.health.health)
+
+
+func _on_health_changed(difference: int):
+	print(self.health.health)
+	healthbar.set_health_bar(self.health.health, self.health.max_health)
 
 func get_input_axis() -> Vector2:
 	var input = Vector2.ZERO

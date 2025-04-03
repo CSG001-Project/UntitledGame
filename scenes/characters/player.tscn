@@ -142,4 +142,3 @@ texture = ExtResource("2_s8lw0")
 offset = Vector2(0, -24)
 
 [node name="Beam" parent="." instance=ExtResource("6_meqhw")]
-weapon_range = 0

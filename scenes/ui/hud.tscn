@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://45exv7p7tkwy"]
+[gd_scene load_steps=12 format=3 uid="uid://45exv7p7tkwy"]
 
 [ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_8egb5"]
 [ext_resource type="Texture2D" uid="uid://jwmtylfxvj1p" path="res://assets/sprites/ui/inventory.png" id="2_cspru"]
 [ext_resource type="Script" path="res://scripts/ui/button.gd" id="7_pye30"]
+[ext_resource type="Script" path="res://scripts/ui/health_bar.gd" id="8_7vjkp"]
 [ext_resource type="Script" path="res://scripts/ui/inventory.gd" id="11_sei86"]
 [ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="12_32u8j"]
 [ext_resource type="Script" path="res://scripts/resources/inventory_data.gd" id="14_dbeij"]
@@ -11,6 +12,12 @@
 [sub_resource type="Resource" id="Resource_6uun8"]
 script = ExtResource("14_dbeij")
 inventory = Array[ExtResource("12_32u8j")]([])
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cr8du"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c44iv"]
+bg_color = Color(0, 0.727352, 0.11733, 1)
 
 [node name="HUD" type="CanvasLayer"]
 follow_viewport_enabled = true
@@ -139,3 +146,23 @@ metadata/_edit_group_ = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="HealthBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 334.0
+offset_top = 329.0
+offset_right = 637.0
+offset_bottom = 356.0
+theme_override_styles/background = SubResource("StyleBoxFlat_cr8du")
+theme_override_styles/fill = SubResource("StyleBoxFlat_c44iv")
+show_percentage = false
+script = ExtResource("8_7vjkp")
+
+[node name="HealthLabel" type="Label" parent="Control/HealthBar"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 299.0
+offset_bottom = 24.0
+text = "5/5"
+horizontal_alignment = 1
