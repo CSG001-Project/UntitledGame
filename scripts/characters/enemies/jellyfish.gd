@@ -18,12 +18,13 @@ func _physics_process(_delta: float) -> void:
 func make_turn() -> void:
 	await get_tree().physics_frame
 	
+	var enemies = get_tree().get_nodes_in_group("enemies")
 	var tile_map = get_parent().get_node("Level0/Layer0")
 	var player = get_parent().get_node("Player")
 	var path = tile_map.find_path(tile_map.local_to_map(tile_map.to_local(global_position)), tile_map.local_to_map(tile_map.to_local(player.global_position)))
 	
 	if not turn_counter:
-		await weapon.attack_ranged()
+		weapon.attack_ranged()
 		turn_counter = 2
 	elif randf() > 0.8:
 		# rng induced seizure idfk

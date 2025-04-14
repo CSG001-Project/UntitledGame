@@ -128,5 +128,6 @@ shape = SubResource("RectangleShape2D_v5qhq")
 script = ExtResource("5_2egrp")
 
 [node name="Timer" type="Timer" parent="JellyCaboom"]
+wait_time = 0.1
 
 [connection signal="health_depleted" from="Health" to="." method="die"]
