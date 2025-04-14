@@ -45,6 +45,7 @@ script = ExtResource("4_cc31c")
 follow_viewport_enabled = false
 
 [node name="ExplorationMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("6_nbn6q")
 autoplay = true
 parameters/looping = true
