@@ -11,8 +11,10 @@ class_name Beam
 @onready var sprite4 = $Sprite2D4
 @onready var raycast4 = $RayCast2D4
 @onready var raycast5 = $RayCast2D5
+@onready var sound = $AudioStreamPlayer
 
 func attack_melee():
+	sound.play()
 	var mouse_position: Vector2 = get_global_mouse_position()
 	var angle = snappedf((global_position - mouse_position).angle(), deg_to_rad(90)) - deg_to_rad(90)
 	
