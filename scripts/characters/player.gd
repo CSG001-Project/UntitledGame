@@ -64,6 +64,8 @@ func _physics_process(_delta: float) -> void:
 func _on_health_changed(difference: int):
 	print(self.health.health)
 	healthbar.set_health_bar(self.health.health, self.health.max_health)
+	if self.health.health <= 0:
+		get_tree().quit()
 
 func get_input_axis() -> Vector2:
 	var input = Vector2.ZERO
