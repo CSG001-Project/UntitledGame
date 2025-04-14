@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgdeyv7f65pb4"]
+[gd_scene load_steps=3 format=3 uid="uid://dgdeyv7f65pb4"]
 
 [ext_resource type="Script" path="res://scripts/items/weapons/jelly_support.gd" id="1_fwmlg"]
+[ext_resource type="Texture2D" uid="uid://s6v3dkrli47x" path="res://assets/sprites/items/Shockini_Chargini.png" id="1_une0p"]
 
 [node name="JellySupport" type="Node2D"]
 script = ExtResource("1_fwmlg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_une0p")
