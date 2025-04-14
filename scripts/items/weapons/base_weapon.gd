@@ -4,7 +4,7 @@ class_name BaseWeapon
 @export var weapon_range: int = 1
 @export var damage: int = 1
 
-var is_ranged_attacking:bool = false
+var is_ranged_attacking: bool = false
 var player_pos: Vector2
 var velocity: Vector2
 var target: Vector2

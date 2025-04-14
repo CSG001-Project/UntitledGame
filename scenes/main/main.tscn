@@ -15,6 +15,7 @@ y_sort_enabled = true
 position = Vector2(400, 144)
 
 [node name="Jellyfish2" parent="." instance=ExtResource("3_r1d4u")]
+visible = false
 position = Vector2(528, 240)
 
 [node name="Jellyfish3" parent="." instance=ExtResource("3_r1d4u")]

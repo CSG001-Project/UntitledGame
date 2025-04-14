@@ -2,7 +2,6 @@ extends BaseEnemy
 
 @onready var sprite = $Sprite
 @onready var static_body = $StaticBody2D
-@export var weapon: Node2D
 
 func _ready() -> void:
 	super()

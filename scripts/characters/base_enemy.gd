@@ -4,6 +4,7 @@ class_name BaseEnemy
 @onready var health = $Health
 
 @export var strength: float = 1
+@export var weapon: Node2D
 @export_range (0.00, 1.00) var defence: float = 0 # 0.00-1.00 
 @export_range (0.1, 3.0) var speed: float = 1.00 # every {speed} tile(s) enemy gets a move, 0.1-3.0, if > 1 get multiple turns each player turn
 
@@ -40,3 +41,6 @@ func make_turn() -> void:
 	
 func die() -> void:
 	TurnManager.enemies.erase(self)
+
+func attack():
+	pass

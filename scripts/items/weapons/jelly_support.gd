@@ -1,0 +1,2 @@
+extends BaseWeapon
+class_name JellySupport
