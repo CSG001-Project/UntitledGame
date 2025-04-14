@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1n4cngpp7o2e"]
+[gd_scene load_steps=6 format=3 uid="uid://c1n4cngpp7o2e"]
 
 [ext_resource type="PackedScene" uid="uid://cges8fuc52cx0" path="res://scenes/levels/level_0.tscn" id="2_2ehvs"]
 [ext_resource type="PackedScene" uid="uid://b1im14ilejp1q" path="res://scenes/characters/player.tscn" id="2_d8asp"]
 [ext_resource type="PackedScene" uid="uid://c632gx50g5qbs" path="res://scenes/characters/enemies/jellyfish.tscn" id="3_r1d4u"]
 [ext_resource type="PackedScene" uid="uid://45exv7p7tkwy" path="res://scenes/ui/hud.tscn" id="4_2yll4"]
 [ext_resource type="Script" path="res://scripts/ui/camera.gd" id="4_cc31c"]
-[ext_resource type="AudioStream" uid="uid://biw5ivcm7840u" path="res://assets/audio/music/ExplorationDemo1.mp3" id="6_nbn6q"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -16,11 +15,10 @@ y_sort_enabled = true
 position = Vector2(400, 144)
 
 [node name="Jellyfish2" parent="." instance=ExtResource("3_r1d4u")]
-visible = false
-position = Vector2(528, 240)
+position = Vector2(400, 272)
 
 [node name="Jellyfish3" parent="." instance=ExtResource("3_r1d4u")]
-position = Vector2(144, 240)
+position = Vector2(464, 240)
 
 [node name="Player" parent="." instance=ExtResource("2_d8asp")]
 position = Vector2(336, 176)
@@ -43,9 +41,3 @@ script = ExtResource("4_cc31c")
 
 [node name="HUD" parent="." instance=ExtResource("4_2yll4")]
 follow_viewport_enabled = false
-
-[node name="ExplorationMusic" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("6_nbn6q")
-autoplay = true
-parameters/looping = true
