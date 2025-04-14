@@ -2,6 +2,7 @@ extends BaseWeapon
 class_name JellyCaboom
 
 var friends = []
+var supports = []
 var support = preload("res://scenes/items/weapons/jelly_support.tscn")
 
 @onready var timer = $Timer
@@ -18,10 +19,49 @@ func attack_ranged():
 				if j == 0:
 					continue
 				else:
-					if not check_wall(global_position, Vector2(i * TILE_SIZE, j * TILE_SIZE)):
+					if not check_wall(global_position, global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE)):
 						var support_instance = support.instantiate()
 						add_child(support_instance)
-				pass
+						support_instance.global_position = global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE)
+						supports.append(support_instance)
+					if not check_wall(global_position, global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE * -1)):
+						var support_instance = support.instantiate()
+						add_child(support_instance)
+						support_instance.global_position = global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE * -1)
+						supports.append(support_instance)
+			
+			if j != 0:
+				if not check_wall(global_position, global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE)):
+					var support_instance = support.instantiate()
+					add_child(support_instance)
+					support_instance.global_position = global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE)
+					supports.append(support_instance)
+				if not check_wall(global_position, global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE * -1)):
+					var support_instance = support.instantiate()
+					add_child(support_instance)
+					support_instance.global_position = global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE * -1)
+					supports.append(support_instance)
+				if not check_wall(global_position, global_position + Vector2(i * TILE_SIZE * -1, j * TILE_SIZE)):
+					var support_instance = support.instantiate()
+					add_child(support_instance)
+					support_instance.global_position = global_position + Vector2(i * TILE_SIZE * -1, j * TILE_SIZE)
+					supports.append(support_instance)
+				if not check_wall(global_position, global_position +Vector2(i * TILE_SIZE * -1, j * TILE_SIZE * -1)):
+					var support_instance = support.instantiate()
+					add_child(support_instance)
+					support_instance.global_position = global_position + Vector2(i * TILE_SIZE * -1, j * TILE_SIZE * -1)
+					supports.append(support_instance)
+			else:
+				if not check_wall(global_position, global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE)):
+					var support_instance = support.instantiate()
+					add_child(support_instance)
+					support_instance.global_position = global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE)
+					supports.append(support_instance)
+				if not check_wall(global_position, global_position + Vector2(i * TILE_SIZE * -1, j * TILE_SIZE)):
+					var support_instance = support.instantiate()
+					add_child(support_instance)
+					support_instance.global_position = global_position + Vector2(i * TILE_SIZE * -1, j * TILE_SIZE)
+					supports.append(support_instance)
 
 func look_for_friends():
 	friends.clear()
