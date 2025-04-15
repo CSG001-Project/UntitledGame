@@ -7,7 +7,7 @@ func snapperi(var1: float, var2: int) -> int:
 	var result: int = floori(var1 / var2) * var2
 	return result
 
-#I might not need it but just in case
+#I might not need it but just in case)
 func relative_grid(var1: Vector2, var2: Vector2) -> Vector2:
 	var x = (var1.x - var2.x) / TILE_SIZE
 	var y = (var1.y - var2.y) / TILE_SIZE

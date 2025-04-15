@@ -1,7 +1,5 @@
 extends BaseEnemy
 
-var turn_counter: int = 2
-var has_moved: bool = false
 
 @onready var sprite = $Sprite
 @onready var static_body = $StaticBody2D
@@ -19,40 +17,19 @@ func _physics_process(_delta: float) -> void:
 func make_turn() -> void:
 	await get_tree().physics_frame
 	
-	var enemies = get_tree().get_nodes_in_group("jelly")
 	var tile_map = get_parent().get_node("Level0/Layer0")
-	var player
-	var mindist = 0x0fffffff
-	for jel in enemies:
-		if jel != self and global_position.distance_squared_to(jel.global_position) < mindist:
-			mindist = global_position.distance_squared_to(jel.global_position)
-			player = jel
+	var player = get_parent().get_node("Player")
 	var path = tile_map.find_path(tile_map.local_to_map(tile_map.to_local(global_position)), tile_map.local_to_map(tile_map.to_local(player.global_position)))
-	
-	if not turn_counter:
-		await weapon.attack_ranged()
-		has_moved = true
-		turn_counter = 2
-	elif randf() > 0.8:
+
+	if randf() > 0.8:
 		# rng induced seizure idfk
 		var new_position = Vector2(32,0).rotated(randi_range(0,3)*deg_to_rad(90))
 		
 		if !static_body.test_move(transform, new_position):
 			static_body.position += new_position
-			turn_counter -= 1
-			has_moved = true
 	elif path:
 		if !static_body.test_move(transform, to_local(path[0])):
 			static_body.position = path[0]
-			turn_counter -= 1
-			has_moved = true
-	while not has_moved:
-		var new_position = Vector2(32,0).rotated(randi_range(0,3)*deg_to_rad(90))
-		
-		if !static_body.test_move(transform, new_position):
-			static_body.position += new_position
-			turn_counter -= 1
-			has_moved = true
 
 # despawn / death explosion / etc
 func die() -> void:
