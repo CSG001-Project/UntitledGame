@@ -10,6 +10,3 @@ weapon_range = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_une0p")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
