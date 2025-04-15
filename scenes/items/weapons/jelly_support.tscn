@@ -4,7 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://s6v3dkrli47x" path="res://assets/sprites/items/Shockini_Chargini.png" id="1_une0p"]
 
 [node name="JellySupport" type="Node2D"]
+visible = false
 script = ExtResource("1_fwmlg")
+weapon_range = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_une0p")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
