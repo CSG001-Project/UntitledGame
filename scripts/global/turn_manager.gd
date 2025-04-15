@@ -1,7 +1,9 @@
 extends Node
 class_name Ranged
+
 var enemies = []
 var player_turn = true
+var action_in_progress: bool = false
 
 signal update_sprite
 

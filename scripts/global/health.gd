@@ -6,7 +6,7 @@ signal health_changed(difference: int)
 signal health_depleted
 
 @export var max_health: int = 5: set = set_max_health
-
+#SHAY HI
 var health: int = max_health: set = set_health
 
 func set_max_health(value: int):

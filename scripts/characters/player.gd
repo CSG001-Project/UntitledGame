@@ -29,20 +29,20 @@ func _physics_process(_delta: float) -> void:
 	
 	sprite.play("idle_"+direction)
 	
-	if Input.is_action_just_released("attack") and weapon.weapon_range == 0 and !is_in_action:
+	if Input.is_action_just_released("attack") and weapon.weapon_range == 0 and !is_in_action and !TurnManager.action_in_progress:
 		# Wait for the attack to finish and then call the enemy turn
 		is_in_action = true
 		update_direction(sin(angle))
 		await weapon.attack_melee()
 		is_in_action = false
 		TurnManager.enemy_turn()
-	elif Input.is_action_just_released("attack") and weapon.weapon_range > 0 and !is_in_action:
+	elif Input.is_action_just_released("attack") and weapon.weapon_range > 0 and !is_in_action and !TurnManager.action_in_progress:
 		if try_shooting():
 			is_in_action = true
 			await weapon.attack_ranged()
 			is_in_action = false
 			TurnManager.enemy_turn()
-	elif !is_in_action:
+	elif !is_in_action and !TurnManager.action_in_progress:
 		var axis = get_input_axis()
 		
 		if axis != Vector2.ZERO and TurnManager.player_turn and timer.is_stopped():

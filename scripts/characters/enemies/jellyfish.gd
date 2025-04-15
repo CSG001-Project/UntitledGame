@@ -31,7 +31,9 @@ func make_turn() -> void:
 	
 	has_moved = false
 	if not turn_counter:
+		TurnManager.action_in_progress = true
 		await weapon.attack_ranged()
+		TurnManager.action_in_progress = false
 		has_moved = true
 		turn_counter = 2
 	elif randf() > 0.8:
@@ -47,13 +49,16 @@ func make_turn() -> void:
 			static_body.position = path[0]
 			turn_counter -= 1
 			has_moved = true
-	while not has_moved:
+	var attempts_to_move: int = 0
+	while not has_moved && attempts_to_move < 101:
 		var new_position = Vector2(32,0).rotated(randi_range(0,3)*deg_to_rad(90))
 		
 		if !static_body.test_move(transform, new_position):
 			static_body.position += new_position
 			turn_counter -= 1
 			has_moved = true
+		else:
+			attempts_to_move += 1
 
 # despawn / death explosion / etc
 func die() -> void:
@@ -67,3 +72,7 @@ func update_sprite() -> void:
 	# Tween sprite to new position after turn is finished
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "global_position", static_body.global_position, 0.2)
+
+
+func _on_jelly_caboom_attack() -> void:
+	pass # Replace with function body.

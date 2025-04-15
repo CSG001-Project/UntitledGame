@@ -107,7 +107,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5qhq"]
 size = Vector2(30, 30)
 
-[node name="Jellyfish" type="Node2D" node_paths=PackedStringArray("weapon") groups=["enemy", "jelly"]]
+[node name="Jellyfish" type="Node2D" node_paths=PackedStringArray("weapon")]
 y_sort_enabled = true
 script = ExtResource("1_81cih")
 weapon = NodePath("JellyCaboom")
@@ -120,7 +120,7 @@ y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_ecp4c")
 animation = &"idle_left"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["enemy"]]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["enemy", "jelly"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_v5qhq")
@@ -251,3 +251,4 @@ position = Vector2(32, -96)
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="health_depleted" from="Health" to="." method="die"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport" method="_on_jelly_caboom_attack"]
