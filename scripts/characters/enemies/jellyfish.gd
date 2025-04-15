@@ -29,6 +29,7 @@ func make_turn() -> void:
 			player = jel
 	var path = tile_map.find_path(tile_map.local_to_map(tile_map.to_local(global_position)), tile_map.local_to_map(tile_map.to_local(player.global_position)))
 	
+	has_moved = false
 	if not turn_counter:
 		await weapon.attack_ranged()
 		has_moved = true
