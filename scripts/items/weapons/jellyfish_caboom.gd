@@ -2,73 +2,19 @@ extends BaseWeapon
 class_name JellyCaboom
 
 var friends = []
-var supports = []
-var support = preload("res://scenes/items/weapons/jelly_support.tscn")
-
-@onready var timer = $Timer
 
 @export var shock: Node2D
 
 # Called when the node enters the scene tree for the first time.
 func attack_ranged():
 	look_for_friends()
-	supports.clear()
 	#this implementation is obviously bad performance wise
 	#but I could not figure out a better way to do that with same flexebility
-	for i in range(weapon_range):
-		for j in range(weapon_range - i):
-			if i == 0:
-				if j == 0:
-					continue
-				else:
-					if not check_wall(global_position, global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE)):
-						var support_instance = support.instantiate()
-						add_child(support_instance)
-						support_instance.global_position = global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE)
-						supports.append(support_instance)
-					if not check_wall(global_position, global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE * -1)):
-						var support_instance = support.instantiate()
-						add_child(support_instance)
-						support_instance.global_position = global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE * -1)
-						supports.append(support_instance)
-			
-			elif j != 0:
-				if not check_wall(global_position, global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE)):
-					var support_instance = support.instantiate()
-					add_child(support_instance)
-					support_instance.global_position = global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE)
-					supports.append(support_instance)
-				if not check_wall(global_position, global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE * -1)):
-					var support_instance = support.instantiate()
-					add_child(support_instance)
-					support_instance.global_position = global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE * -1)
-					supports.append(support_instance)
-				if not check_wall(global_position, global_position + Vector2(i * TILE_SIZE * -1, j * TILE_SIZE)):
-					var support_instance = support.instantiate()
-					add_child(support_instance)
-					support_instance.global_position = global_position + Vector2(i * TILE_SIZE * -1, j * TILE_SIZE)
-					supports.append(support_instance)
-				if not check_wall(global_position, global_position +Vector2(i * TILE_SIZE * -1, j * TILE_SIZE * -1)):
-					var support_instance = support.instantiate()
-					add_child(support_instance)
-					support_instance.global_position = global_position + Vector2(i * TILE_SIZE * -1, j * TILE_SIZE * -1)
-					supports.append(support_instance)
-			else:
-				if not check_wall(global_position, global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE)):
-					var support_instance = support.instantiate()
-					add_child(support_instance)
-					support_instance.global_position = global_position + Vector2(i * TILE_SIZE, j * TILE_SIZE)
-					supports.append(support_instance)
-				if not check_wall(global_position, global_position + Vector2(i * TILE_SIZE * -1, j * TILE_SIZE)):
-					var support_instance = support.instantiate()
-					add_child(support_instance)
-					support_instance.global_position = global_position + Vector2(i * TILE_SIZE * -1, j * TILE_SIZE)
-					supports.append(support_instance)
-	
-	timer.start()
-	await timer.timeout
-	for things in supports:
-		things.queue_free()
+	for i in self.find_children(""):
+		if (((abs(i.global_position.x) - 16) / TILE_SIZE) + ((abs(i.global_position.y) - 16) / TILE_SIZE)) < weapon_range:
+			print(((abs(i.global_position.x) - 16) / TILE_SIZE) + ((abs(i.global_position.y) - 16) / TILE_SIZE))
+			if not check_wall(global_position, i.global_position):
+				i.attack_mlee
 
 func look_for_friends():
 	friends.clear()
