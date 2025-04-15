@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b1im14ilejp1q"]
+[gd_scene load_steps=22 format=3 uid="uid://b1im14ilejp1q"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_mvto6"]
 [ext_resource type="Script" path="res://scripts/global/health.gd" id="2_75q18"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dd1e5dqsxs3cx" path="res://assets/sprites/characters/player/player_idle_left.png" id="4_ono01"]
 [ext_resource type="Texture2D" uid="uid://ca2ux1o4oiu35" path="res://assets/sprites/characters/player/player_idle_right.png" id="5_tnchy"]
 [ext_resource type="PackedScene" uid="uid://c8pkkmiw0sixk" path="res://scenes/items/weapons/Beam.tscn" id="6_meqhw"]
+[ext_resource type="PackedScene" uid="uid://be180qu0k3bgl" path="res://scenes/items/weapons/Harpoonini_Attackini.tscn" id="7_hc5mu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0kkqc"]
 size = Vector2(30, 30)
@@ -107,11 +108,10 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("weapon")]
+[node name="Player" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(1, 1)
 script = ExtResource("1_mvto6")
-weapon = NodePath("Beam")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_75q18")
@@ -142,3 +142,5 @@ texture = ExtResource("2_s8lw0")
 offset = Vector2(0, -24)
 
 [node name="Beam" parent="." instance=ExtResource("6_meqhw")]
+
+[node name="Harpoon" parent="." instance=ExtResource("7_hc5mu")]

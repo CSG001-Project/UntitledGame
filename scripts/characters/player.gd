@@ -6,8 +6,7 @@ extends BaseCharacter
 @onready var static_body = $StaticBody2D
 @onready var health = $Health
 @onready var healthbar = $"../HUD/Control/HealthBar"
-
-@export var weapon: Node2D
+@onready var weapon = $Beam
 
 var is_in_action: bool = false
 
@@ -59,6 +58,10 @@ func _physics_process(_delta: float) -> void:
 				TurnManager.enemy_turn()
 	if Input.is_key_pressed(KEY_Z):
 		self.health.health -= 1
+	if Input.is_key_pressed(KEY_1):
+		weapon = $Harpoon
+	if Input.is_key_pressed(KEY_2):
+		weapon = $Beam
 
 
 func _on_health_changed(difference: int):

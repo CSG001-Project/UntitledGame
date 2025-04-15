@@ -114,6 +114,7 @@ offset_bottom = 360.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_p4m4n")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel2"]
+layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
 bbcode_enabled = true
