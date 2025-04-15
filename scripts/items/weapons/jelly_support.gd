@@ -7,7 +7,6 @@ var is_used: bool = false
 
 func _on_jelly_caboom_attack() -> void:
 	if is_used:
-		print("Entered")
 		var player = get_parent().get_parent().get_parent().get_node("Player")
 		if player.global_position == global_position:
 			player.health.health -= 1

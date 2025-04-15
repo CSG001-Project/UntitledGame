@@ -51,11 +51,10 @@ func ray_of_friendship(start: Vector2, end: Vector2) -> void:
 				ray_of_friendship(result.collider.global_position, end)
 
 func check_wall(start: Vector2, end: Vector2) -> bool:
-#	var space_state = get_world_2d().direct_space_state
-#	var query = PhysicsRayQueryParameters2D.create(start, end, 1)
-#	var result = space_state.intersect_ray(query)
-#	if not result.is_empty():
-#		if not result.collider.is_in_group("enemy"):
-#			if not result.collider == get_parent().get_parent().get_node("Player"):
-#				return true
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(start, end, 1)
+	var result = space_state.intersect_ray(query)
+	if not result.is_empty():
+		if not result.collider.is_in_group("entity"):
+			return true
 	return false

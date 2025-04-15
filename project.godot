@@ -43,6 +43,10 @@ folder_colors={
 "res://tests/": "purple"
 }
 
+[global_group]
+
+entity=""
+
 [input]
 
 move_up={
