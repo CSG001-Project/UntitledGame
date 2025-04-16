@@ -10,8 +10,9 @@ func _ready() -> void:
 	static_body.top_level = true
 	static_body.global_position = global_position
 
-func _physics_process(_delta: float) -> void:
-	sprite.play("idle_"+direction)
+#No animation yet
+#func _physics_process(_delta: float) -> void:
+#	sprite.play("idle_"+direction)
 
 #enemy moves / attacks / etc
 func make_turn() -> void:

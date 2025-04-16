@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgdeyv7f65pb4"]
 
-[ext_resource type="Script" path="res://scripts/items/weapons/jelly_support.gd" id="1_fwmlg"]
+[ext_resource type="Script" path="res://scripts/items/weapons/Enemy/jelly_support.gd" id="1_4nwbs"]
 [ext_resource type="Texture2D" uid="uid://s6v3dkrli47x" path="res://assets/sprites/items/Shockini_Chargini.png" id="1_une0p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bw6pm"]
 
 [node name="JellySupport" type="Node2D"]
 visible = false
-script = ExtResource("1_fwmlg")
+script = ExtResource("1_4nwbs")
 weapon_range = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

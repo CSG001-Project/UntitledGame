@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/global/health.gd" id="2_dvh32"]
 [ext_resource type="Texture2D" uid="uid://34nx0djawpg6" path="res://assets/sprites/characters/enemies/jellyfish/jellyfish_idle_left.png" id="3_funfx"]
 [ext_resource type="Texture2D" uid="uid://b3jufdv6lrlur" path="res://assets/sprites/characters/enemies/jellyfish/jellyfish_idle_right.png" id="4_88ujr"]
-[ext_resource type="Script" path="res://scripts/items/weapons/jellyfish_caboom.gd" id="5_2egrp"]
+[ext_resource type="Script" path="res://scripts/items/weapons/Enemy/jellyfish_caboom.gd" id="5_obybg"]
 [ext_resource type="PackedScene" uid="uid://dgdeyv7f65pb4" path="res://scenes/items/weapons/jelly_support.tscn" id="6_64imj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_51o5t"]
@@ -126,7 +126,7 @@ animation = &"idle_left"
 shape = SubResource("RectangleShape2D_v5qhq")
 
 [node name="JellyCaboom" type="Node2D" parent="."]
-script = ExtResource("5_2egrp")
+script = ExtResource("5_obybg")
 
 [node name="JellySupport" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(-32, 0)

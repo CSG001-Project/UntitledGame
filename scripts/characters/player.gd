@@ -96,17 +96,14 @@ func update_sprite() -> void:
 	rotation_tween.tween_property(sprite, "rotation_degrees", 0, 0.15).set_ease(Tween.EASE_OUT)
 
 func try_shooting() -> bool:
-	print("Tried trying to shoot")
 	var mouse_position: Vector2 = get_global_mouse_position()
 	mouse_position.x = MishaMath.snapperi(mouse_position.x, TILE_SIZE) + HALF_TILE; mouse_position.y = MishaMath.snapperi(mouse_position.y, TILE_SIZE) + HALF_TILE
 	var aim_offset: Vector2 = mouse_position - global_position
 	var snapped_distance: int = MishaMath.snapperi(abs(aim_offset.x) + abs(aim_offset.y), TILE_SIZE);
 	if not snapped_distance <= weapon.weapon_range * TILE_SIZE:
-		print("Too far")
 		return false
 	else:
 		if check_collisions(global_position, mouse_position):
-			print("Wall")
 			return false
 		else:
 			return true

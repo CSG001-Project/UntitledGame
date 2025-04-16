@@ -16,12 +16,10 @@ func _process(delta: float) -> void:
 			sprite.visible = false
 
 func attack_ranged():
-	print("Tried shooting")
 	player_pos = global_position
 	target = get_global_mouse_position()
 	target.x = MishaMath.snapperi(target.x, TILE_SIZE) + HALF_TILE
 	target.y = MishaMath.snapperi(target.y, TILE_SIZE) + HALF_TILE
-	print(target.x, " ", target.y)
 	global_rotation = (global_position - target).angle() - PI/2 #why do I need to do this? sb explain, I have no clue why I need to substract pi/2
 	
 	#temporary
