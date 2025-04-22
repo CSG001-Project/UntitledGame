@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://45exv7p7tkwy"]
 
-[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_8egb5"]
-[ext_resource type="Script" path="res://scripts/ui/volume.gd" id="2_td3ph"]
-[ext_resource type="Script" path="res://scripts/ui/options_button.gd" id="8_4qob7"]
-[ext_resource type="Script" path="res://scripts/ui/health_bar.gd" id="8_7vjkp"]
+[ext_resource type="Script" uid="uid://bb5bxqrdbmxje" path="res://scripts/ui/hud.gd" id="1_8egb5"]
+[ext_resource type="Script" uid="uid://bisgqfvomp6rd" path="res://scripts/ui/volume.gd" id="2_td3ph"]
+[ext_resource type="Script" uid="uid://uobn0nr07dad" path="res://scripts/ui/options_button.gd" id="8_4qob7"]
+[ext_resource type="Script" uid="uid://dp86a4843ohaj" path="res://scripts/ui/health_bar.gd" id="8_7vjkp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8mx4"]
 bg_color = Color(0.12549, 0.12549, 0.12549, 0.717647)

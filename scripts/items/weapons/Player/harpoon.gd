@@ -4,6 +4,7 @@ class_name Harpoon
 @onready var timer = $Timer
 @onready var sprite = $Sprite2D
 @onready var raycast = $RayCast2D
+@onready var sound = $AudioStreamPlayer
 
 func _process(delta: float) -> void:
 	var speed: float = 100
@@ -21,7 +22,7 @@ func attack_ranged():
 	target.x = MishaMath.snapperi(target.x, TILE_SIZE) + HALF_TILE
 	target.y = MishaMath.snapperi(target.y, TILE_SIZE) + HALF_TILE
 	global_rotation = (global_position - target).angle() - PI/2 #why do I need to do this? sb explain, I have no clue why I need to substract pi/2
-	
+	sound.play()
 	#temporary
 	sprite.visible = true
 	is_ranged_attacking = true

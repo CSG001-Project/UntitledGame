@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://be180qu0k3bgl"]
+[gd_scene load_steps=4 format=3 uid="uid://be180qu0k3bgl"]
 
-[ext_resource type="Script" path="res://scripts/items/weapons/Player/harpoon.gd" id="1_t3giv"]
+[ext_resource type="Script" uid="uid://bc31dysd7oc55" path="res://scripts/items/weapons/Player/harpoon.gd" id="1_t3giv"]
 [ext_resource type="Texture2D" uid="uid://s50i7tdbxhh1" path="res://assets/sprites/items/Super_Duper_Mega_Harpoooooon.png" id="2_cw61y"]
+[ext_resource type="AudioStream" uid="uid://dbkod2bqnriaj" path="res://assets/audio/effects/HawkTuaPedro.wav" id="3_iygx6"]
 
 [node name="Harpoon" type="Node2D"]
 script = ExtResource("1_t3giv")
@@ -18,3 +19,6 @@ texture = ExtResource("2_cw61y")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_iygx6")
