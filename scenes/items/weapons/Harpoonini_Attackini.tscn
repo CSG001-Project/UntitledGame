@@ -22,3 +22,4 @@ one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_iygx6")
+volume_db = 24.0
