@@ -293,7 +293,7 @@ custom_data_layer_0/name = "is_solid"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_5vowo")
 
-[node name="Level0" type="Node2D"]
+[node name="Level1" type="Node2D"]
 y_sort_enabled = true
 
 [node name="Layer0" type="TileMapLayer" parent="."]
