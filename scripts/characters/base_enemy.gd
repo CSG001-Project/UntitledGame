@@ -38,7 +38,7 @@ func turn() -> void:
 func make_turn() -> void:
 	assert(false, "Must be implemented in inherited enemy class")
 	# enemy moves / attacks / etc
-	
+
 func die() -> void:
 	TurnManager.enemies.erase(self)
 

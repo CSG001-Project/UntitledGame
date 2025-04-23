@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 TurnManager="*res://scripts/global/turn_manager.gd"
 MishaMath="*res://scripts/global/misha_math.gd"
+MusicPlayer="*res://scripts/global/music_player.gd"
 
 [display]
 

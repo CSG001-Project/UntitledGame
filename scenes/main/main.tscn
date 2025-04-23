@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://b1im14ilejp1q" path="res://scenes/characters/player.tscn" id="2_d8asp"]
 [ext_resource type="PackedScene" uid="uid://c632gx50g5qbs" path="res://scenes/characters/enemies/jellyfish.tscn" id="3_r1d4u"]
 [ext_resource type="PackedScene" uid="uid://45exv7p7tkwy" path="res://scenes/ui/hud.tscn" id="4_2yll4"]
-[ext_resource type="Script" uid="uid://qrxsj6fm8ibp" path="res://scripts/ui/camera.gd" id="4_cc31c"]
-[ext_resource type="PackedScene" uid="uid://tw2j03biihyh" path="res://scenes/characters/enemies/swordfish.tscn" id="7_o73f4"]
+[ext_resource type="Script" path="res://scripts/ui/camera.gd" id="4_cc31c"]
+[ext_resource type="PackedScene" path="res://scenes/characters/enemies/swordfish.tscn" id="7_o73f4"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
