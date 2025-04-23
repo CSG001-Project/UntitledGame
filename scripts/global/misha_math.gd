@@ -13,7 +13,7 @@ func relative_grid(var1: Vector2, var2: Vector2) -> Vector2:
 	var y = (var1.y - var2.y) / TILE_SIZE
 	return Vector2(x, y)
 
-#godot is_approx_equals doesnt work for me for some reason((
+#godot is_approx_equals oesnt work for me for some reason((
 func approx_equals(var1, var2, e) -> bool:
 	e = abs(e)
 	if var1 < (var2 + e) and var1 > (var2 - e):

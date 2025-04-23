@@ -1,21 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://tw2j03biihyh"]
+[gd_scene load_steps=6 format=3 uid="uid://cn0xbgxhgdgsg"]
 
-[ext_resource type="Script" uid="uid://cj1btaha4aa1a" path="res://scripts/characters/enemies/mexican_swordfish.gd" id="1_gr5rf"]
-[ext_resource type="Script" uid="uid://b0gah42f072hk" path="res://scripts/global/health.gd" id="2_lmfu2"]
-[ext_resource type="Texture2D" uid="uid://kfyvapxbo4o6" path="res://assets/sprites/characters/red_mist_squidward.png" id="3_hhrqa"]
+[ext_resource type="Script" path="res://scripts/characters/enemies/mexican_swordfish.gd" id="1_gr5rf"]
+[ext_resource type="Script" path="res://scripts/global/health.gd" id="2_lmfu2"]
+[ext_resource type="Texture2D" uid="uid://beu67t604vic2" path="res://assets/sprites/characters/enemies/mexicanini_swordfishini.png" id="3_shxoj"]
+[ext_resource type="PackedScene" uid="uid://32l1kip7b8xa" path="res://scenes/items/weapons/Swordini_Piercini.tscn" id="4_oetwy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5qhq"]
 size = Vector2(30, 30)
 
-[node name="Swordfish" type="Node2D"]
+[node name="Swordfish" type="Node2D" node_paths=PackedStringArray("weapon")]
 y_sort_enabled = true
 script = ExtResource("1_gr5rf")
+weapon = NodePath("SwordiniPiercini")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_lmfu2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_hhrqa")
+texture = ExtResource("3_shxoj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["enemy", "entity", "jelly"]]
 
@@ -23,5 +25,7 @@ texture = ExtResource("3_hhrqa")
 shape = SubResource("RectangleShape2D_v5qhq")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="SwordiniPiercini" parent="." instance=ExtResource("4_oetwy")]
 
 [connection signal="health_depleted" from="Health" to="." method="die"]
