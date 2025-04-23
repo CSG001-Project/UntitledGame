@@ -148,3 +148,5 @@ offset = Vector2(0, -24)
 
 [node name="Death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_cjot3")
+
+[connection signal="health_depleted" from="Health" to="." method="_on_health_depleted"]

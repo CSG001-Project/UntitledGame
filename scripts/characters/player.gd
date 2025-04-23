@@ -120,3 +120,8 @@ func check_collisions(start: Vector2, end: Vector2) -> bool:
 			return true
 	else:
 		return false
+
+func _on_health_depleted() -> void:
+	death.play()
+	await get_tree().create_timer(2).timeout
+	get_tree().change_scene_to_file("res://scenes/main/title.tscn")
