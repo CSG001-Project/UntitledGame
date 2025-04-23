@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cn0xbgxhgdgsg"]
 
-[ext_resource type="Script" path="res://scripts/characters/enemies/mexican_swordfish.gd" id="1_gr5rf"]
-[ext_resource type="Script" path="res://scripts/global/health.gd" id="2_lmfu2"]
+[ext_resource type="Script" uid="uid://cj1btaha4aa1a" path="res://scripts/characters/enemies/mexican_swordfish.gd" id="1_gr5rf"]
+[ext_resource type="Script" uid="uid://b0gah42f072hk" path="res://scripts/global/health.gd" id="2_lmfu2"]
 [ext_resource type="Texture2D" uid="uid://beu67t604vic2" path="res://assets/sprites/characters/enemies/mexicanini_swordfishini.png" id="3_shxoj"]
 [ext_resource type="PackedScene" uid="uid://32l1kip7b8xa" path="res://scenes/items/weapons/Swordini_Piercini.tscn" id="4_oetwy"]
 [ext_resource type="AudioStream" uid="uid://cx225cv6g0kxl" path="res://assets/audio/effects/SwordFishDashPedro.wav" id="5_nq4ya"]

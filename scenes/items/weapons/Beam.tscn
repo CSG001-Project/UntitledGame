@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8pkkmiw0sixk"]
 
-[ext_resource type="Script" path="res://scripts/items/weapons/Player/make_the_beam_great_again.gd" id="1_8p7q6"]
+[ext_resource type="Script" uid="uid://ddxfwk72tmtfi" path="res://scripts/items/weapons/Player/make_the_beam_great_again.gd" id="1_8p7q6"]
 [ext_resource type="Texture2D" uid="uid://dk2w8357r6mdf" path="res://assets/sprites/effects/LaserBeam.png" id="2_1fqg1"]
 [ext_resource type="AudioStream" uid="uid://cdc1gbdhu6tej" path="res://assets/audio/effects/BeamProper.wav" id="3_n41wv"]
 

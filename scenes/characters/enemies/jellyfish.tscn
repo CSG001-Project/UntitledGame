@@ -1,10 +1,10 @@
 [gd_scene load_steps=25 format=3 uid="uid://c632gx50g5qbs"]
 
-[ext_resource type="Script" path="res://scripts/characters/enemies/jellyfish.gd" id="1_81cih"]
-[ext_resource type="Script" path="res://scripts/global/health.gd" id="2_dvh32"]
+[ext_resource type="Script" uid="uid://bo251myna30mo" path="res://scripts/characters/enemies/jellyfish.gd" id="1_81cih"]
+[ext_resource type="Script" uid="uid://b0gah42f072hk" path="res://scripts/global/health.gd" id="2_dvh32"]
 [ext_resource type="Texture2D" uid="uid://34nx0djawpg6" path="res://assets/sprites/characters/enemies/jellyfish/jellyfish_idle_left.png" id="3_funfx"]
 [ext_resource type="Texture2D" uid="uid://b3jufdv6lrlur" path="res://assets/sprites/characters/enemies/jellyfish/jellyfish_idle_right.png" id="4_88ujr"]
-[ext_resource type="Script" path="res://scripts/items/weapons/Enemy/jellyfish_caboom.gd" id="5_obybg"]
+[ext_resource type="Script" uid="uid://vut8v3fm2l85" path="res://scripts/items/weapons/Enemy/jellyfish_caboom.gd" id="5_obybg"]
 [ext_resource type="PackedScene" uid="uid://dgdeyv7f65pb4" path="res://scenes/items/weapons/jelly_support.tscn" id="6_64imj"]
 [ext_resource type="AudioStream" uid="uid://t2rx5eul702y" path="res://assets/audio/effects/ElectricityDemo1.wav" id="7_vl0cl"]
 [ext_resource type="AudioStream" uid="uid://c5r82kv2smckb" path="res://assets/audio/effects/JelFishMovePt1.wav" id="8_avqet"]

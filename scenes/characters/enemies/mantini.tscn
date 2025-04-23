@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://p7e5e3k5rp44"]
 
-[ext_resource type="Script" path="res://scripts/characters/enemies/crockodile.gd" id="1_14mu4"]
-[ext_resource type="Script" path="res://scripts/global/health.gd" id="2_rhb51"]
+[ext_resource type="Script" uid="uid://3bg4w3jqqrxm" path="res://scripts/characters/enemies/crockodile.gd" id="1_14mu4"]
+[ext_resource type="Script" uid="uid://b0gah42f072hk" path="res://scripts/global/health.gd" id="2_rhb51"]
 [ext_resource type="PackedScene" uid="uid://32l1kip7b8xa" path="res://scenes/items/weapons/Swordini_Piercini.tscn" id="4_yt3va"]
 [ext_resource type="AudioStream" uid="uid://cx225cv6g0kxl" path="res://assets/audio/effects/SwordFishDashPedro.wav" id="5_edj54"]
 [ext_resource type="Texture2D" uid="uid://dyovk252gxsky" path="res://assets/sprites/characters/enemies/manta_ray.L.png" id="5_ysqus"]

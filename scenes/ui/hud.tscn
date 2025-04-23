@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://45exv7p7tkwy"]
+[gd_scene load_steps=11 format=3 uid="uid://45exv7p7tkwy"]
 
-[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_8egb5"]
-[ext_resource type="Script" path="res://scripts/ui/volume.gd" id="2_td3ph"]
-[ext_resource type="Script" path="res://scripts/ui/options_button.gd" id="8_4qob7"]
-[ext_resource type="Script" path="res://scripts/ui/health_bar.gd" id="8_7vjkp"]
+[ext_resource type="Script" uid="uid://bb5bxqrdbmxje" path="res://scripts/ui/hud.gd" id="1_8egb5"]
+[ext_resource type="Script" uid="uid://bisgqfvomp6rd" path="res://scripts/ui/volume.gd" id="2_td3ph"]
+[ext_resource type="Script" uid="uid://uobn0nr07dad" path="res://scripts/ui/options_button.gd" id="8_4qob7"]
+[ext_resource type="Script" uid="uid://dp86a4843ohaj" path="res://scripts/ui/health_bar.gd" id="8_7vjkp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8mx4"]
 bg_color = Color(0.12549, 0.12549, 0.12549, 0.717647)
@@ -18,6 +18,14 @@ func _process(_delta):
 	else:
 		get_tree().paused = false
 	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_8qguk"]
+resource_name = "exit"
+script/source = "extends Button
+
+func _pressed():
+	get_tree().quit()
 "
 
 [sub_resource type="GDScript" id="GDScript_x64ry"]
@@ -97,6 +105,11 @@ layout_mode = 2
 min_value = -80.0
 max_value = 6.0
 script = ExtResource("2_td3ph")
+
+[node name="Button" type="Button" parent="Control/Options/VBoxContainer"]
+layout_mode = 2
+text = "EXIT"
+script = SubResource("GDScript_8qguk")
 
 [node name="Button" type="Button" parent="Control/Options"]
 layout_mode = 0

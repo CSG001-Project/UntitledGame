@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://be180qu0k3bgl"]
 
-[ext_resource type="Script" path="res://scripts/items/weapons/Player/harpoon.gd" id="1_t3giv"]
+[ext_resource type="Script" uid="uid://bc31dysd7oc55" path="res://scripts/items/weapons/Player/harpoon.gd" id="1_t3giv"]
 [ext_resource type="Texture2D" uid="uid://s50i7tdbxhh1" path="res://assets/sprites/items/Super_Duper_Mega_Harpoooooon.png" id="2_cw61y"]
 [ext_resource type="AudioStream" uid="uid://dbkod2bqnriaj" path="res://assets/audio/effects/HawkTuaPedro.wav" id="3_iygx6"]
 [ext_resource type="Texture2D" uid="uid://batpsmy7soxgi" path="res://assets/sprites/effects/Enemy Hit Mark1.png" id="4_luam6"]

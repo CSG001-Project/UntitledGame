@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://duthbmlkf15og"]
 
 [ext_resource type="Texture2D" uid="uid://8tu3qd0hmx8w" path="res://assets/ui/DocAp.png" id="1_mamuw"]
-[ext_resource type="Script" path="res://scripts/ui/play.gd" id="2_81rh8"]
+[ext_resource type="Script" uid="uid://cwuvkpd333gsm" path="res://scripts/ui/play.gd" id="2_81rh8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2m8dk"]
 texture = ExtResource("1_mamuw")
@@ -85,7 +85,6 @@ text = "Exit"
 script = SubResource("GDScript_fd7cx")
 
 [node name="Panel2" type="Panel" parent="."]
-visible = false
 offset_right = 640.0
 offset_bottom = 360.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_p4m4n")
@@ -97,19 +96,16 @@ offset_bottom = 360.0
 bbcode_enabled = true
 text = "[center]
 CREDITS:
-NAME HERE
-NAME HERE
-NAME HERE
-NAME HERE
-NAME HERE
-NAME HERE
-NAME HERE
-NAME HERE
-NAME HERE
-NAME HERE
-NAME HERE
-NAME HERE
-NAME HERE
+Kuba Rodak
+Piraka Grinon
+ Cian O’Shaughnessy
+Mykhailo Fedenko
+Pedro Goraieb Fernandez
+Shay Power
+Adam Kennedy
+Lucretia Greville
+Caoimhe Conway
+Leonards Cirksis
 [/center]"
 scroll_active = false
 

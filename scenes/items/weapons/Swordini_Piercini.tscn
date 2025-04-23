@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://32l1kip7b8xa"]
 
-[ext_resource type="Script" path="res://scripts/items/weapons/Enemy/swordini_piercini.gd" id="1_e81lp"]
+[ext_resource type="Script" uid="uid://c3lgnwpgwnrwc" path="res://scripts/items/weapons/Enemy/swordini_piercini.gd" id="1_e81lp"]
 [ext_resource type="Texture2D" uid="uid://2gk67f0ppqvp" path="res://assets/sprites/effects/swordpierce.png" id="2_3nwyu"]
 [ext_resource type="Texture2D" uid="uid://batpsmy7soxgi" path="res://assets/sprites/effects/Enemy Hit Mark1.png" id="3_206rx"]
 [ext_resource type="AudioStream" uid="uid://blu4idgow13ur" path="res://assets/audio/effects/swordswishdemo2.wav" id="3_vja3d"]
