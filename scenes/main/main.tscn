@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1n4cngpp7o2e"]
+[gd_scene load_steps=9 format=3 uid="uid://c1n4cngpp7o2e"]
 
 [ext_resource type="PackedScene" uid="uid://cges8fuc52cx0" path="res://scenes/levels/level_0.tscn" id="2_2ehvs"]
 [ext_resource type="PackedScene" uid="uid://b1im14ilejp1q" path="res://scenes/characters/player.tscn" id="2_d8asp"]
 [ext_resource type="PackedScene" uid="uid://c632gx50g5qbs" path="res://scenes/characters/enemies/jellyfish.tscn" id="3_r1d4u"]
 [ext_resource type="PackedScene" uid="uid://45exv7p7tkwy" path="res://scenes/ui/hud.tscn" id="4_2yll4"]
 [ext_resource type="Script" path="res://scripts/ui/camera.gd" id="4_cc31c"]
+[ext_resource type="PackedScene" uid="uid://ccb2edqeedqul" path="res://scenes/characters/enemies/crockodildo.tscn" id="7_0ljcb"]
 [ext_resource type="PackedScene" uid="uid://cn0xbgxhgdgsg" path="res://scenes/characters/enemies/swordfish.tscn" id="7_o73f4"]
+[ext_resource type="PackedScene" uid="uid://p7e5e3k5rp44" path="res://scenes/characters/enemies/mantini.tscn" id="8_k262t"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -45,3 +47,9 @@ script = ExtResource("4_cc31c")
 
 [node name="HUD" parent="." instance=ExtResource("4_2yll4")]
 follow_viewport_enabled = false
+
+[node name="Crockodili" parent="." instance=ExtResource("7_0ljcb")]
+position = Vector2(176, 272)
+
+[node name="Crockodili2" parent="." instance=ExtResource("8_k262t")]
+position = Vector2(208, 176)

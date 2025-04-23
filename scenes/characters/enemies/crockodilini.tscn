@@ -1,0 +1,282 @@
+[gd_scene load_steps=21 format=3 uid="uid://uam7g4bs3q17"]
+
+[ext_resource type="Script" path="res://scripts/characters/enemies/jellyfish.gd" id="1_06hgn"]
+[ext_resource type="Script" path="res://scripts/global/health.gd" id="2_7rwgd"]
+[ext_resource type="Texture2D" uid="uid://ecx45lictai5" path="res://assets/sprites/characters/enemies/crocodile_L.png" id="3_3dg7e"]
+[ext_resource type="Texture2D" uid="uid://bxr7glpopjin2" path="res://assets/sprites/characters/enemies/crocodile_R.png" id="4_6huxg"]
+[ext_resource type="Script" path="res://scripts/items/weapons/Enemy/jellyfish_caboom.gd" id="5_afx83"]
+[ext_resource type="PackedScene" uid="uid://dgdeyv7f65pb4" path="res://scenes/items/weapons/jelly_support.tscn" id="6_6nkn2"]
+[ext_resource type="AudioStream" uid="uid://t2rx5eul702y" path="res://assets/audio/effects/ElectricityDemo1.wav" id="7_7r3hk"]
+[ext_resource type="AudioStream" uid="uid://c5r82kv2smckb" path="res://assets/audio/effects/JelFishMovePt1.wav" id="8_dgvwr"]
+[ext_resource type="AudioStream" uid="uid://bosdt1884c2ms" path="res://assets/audio/effects/JelFishMovePt2.wav" id="9_y5ec6"]
+[ext_resource type="AudioStream" uid="uid://clv2e4imq38ni" path="res://assets/audio/effects/JelFishDeathDemo1.wav" id="10_bt8ml"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbyy2"]
+atlas = ExtResource("3_3dg7e")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vnjf"]
+atlas = ExtResource("3_3dg7e")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87yr5"]
+atlas = ExtResource("3_3dg7e")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncthx"]
+atlas = ExtResource("3_3dg7e")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjts7"]
+atlas = ExtResource("4_6huxg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xqhc"]
+atlas = ExtResource("4_6huxg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urmhl"]
+atlas = ExtResource("4_6huxg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nawkp"]
+atlas = ExtResource("4_6huxg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ecp4c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbyy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vnjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87yr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncthx")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjts7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xqhc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urmhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nawkp")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5qhq"]
+size = Vector2(30, 30)
+
+[node name="Jellyfish" type="Node2D" node_paths=PackedStringArray("weapon")]
+y_sort_enabled = true
+script = ExtResource("1_06hgn")
+weapon = NodePath("JellyCaboom")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_7rwgd")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_ecp4c")
+animation = &"idle_left"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["enemy", "entity", "jelly"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_v5qhq")
+
+[node name="JellyCaboom" type="Node2D" parent="."]
+script = ExtResource("5_afx83")
+
+[node name="JellySupport" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(-32, 0)
+
+[node name="JellySupport2" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(32, 0)
+
+[node name="JellySupport3" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(64, 0)
+
+[node name="JellySupport4" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(96, 0)
+
+[node name="JellySupport5" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(128, 0)
+
+[node name="JellySupport6" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(-64, 0)
+
+[node name="JellySupport7" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(-96, 0)
+
+[node name="JellySupport8" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(-128, 0)
+
+[node name="JellySupport9" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(0, 32)
+
+[node name="JellySupport10" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(0, 64)
+
+[node name="JellySupport11" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(0, 96)
+
+[node name="JellySupport12" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(0, 128)
+
+[node name="JellySupport13" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(0, -32)
+
+[node name="JellySupport14" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(0, -64)
+
+[node name="JellySupport15" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(0, -96)
+
+[node name="JellySupport16" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(0, -128)
+
+[node name="JellySupport17" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(32, 32)
+
+[node name="JellySupport18" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(64, 32)
+
+[node name="JellySupport19" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(96, 32)
+
+[node name="JellySupport20" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(-32, 32)
+
+[node name="JellySupport21" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(-64, 32)
+
+[node name="JellySupport22" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(-96, 32)
+
+[node name="JellySupport23" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(32, -32)
+
+[node name="JellySupport24" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(64, -32)
+
+[node name="JellySupport25" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(96, -32)
+
+[node name="JellySupport26" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(-32, -32)
+
+[node name="JellySupport27" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(-64, -32)
+
+[node name="JellySupport28" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(-96, -32)
+
+[node name="JellySupport29" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(32, 64)
+
+[node name="JellySupport30" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(64, 64)
+
+[node name="JellySupport31" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(-32, 64)
+
+[node name="JellySupport32" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(-64, 64)
+
+[node name="JellySupport33" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(32, 96)
+
+[node name="JellySupport34" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(-32, -96)
+
+[node name="JellySupport35" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(-32, 96)
+
+[node name="JellySupport36" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(32, -64)
+
+[node name="JellySupport37" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(64, -64)
+
+[node name="JellySupport38" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(-32, -64)
+
+[node name="JellySupport39" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(-64, -64)
+
+[node name="JellySupport40" parent="JellyCaboom" instance=ExtResource("6_6nkn2")]
+position = Vector2(32, -96)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="JellyCaboom"]
+stream = ExtResource("7_7r3hk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Move1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_dgvwr")
+
+[node name="Move2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_y5ec6")
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_bt8ml")
+
+[connection signal="health_depleted" from="Health" to="." method="die"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport2" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport3" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport4" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport5" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport6" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport7" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport8" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport9" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport10" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport11" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport12" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport13" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport14" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport15" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport16" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport17" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport18" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport19" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport20" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport21" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport22" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport23" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport24" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport25" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport26" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport27" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport28" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport29" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport30" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport31" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport32" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport33" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport34" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport35" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport36" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport37" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport38" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport39" method="_on_jelly_caboom_attack"]
+[connection signal="attack" from="JellyCaboom" to="JellyCaboom/JellySupport40" method="_on_jelly_caboom_attack"]
