@@ -1,6 +1,7 @@
 extends Button
 
 func _pressed():
+	TurnManager.enemies = []
 	var new_scene = preload("res://scenes/main/main.tscn").instantiate()
 	var tree = get_tree()
 	var current_scene = tree.current_scene
