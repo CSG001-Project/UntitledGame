@@ -12,9 +12,6 @@ var target: Vector2
 const TILE_SIZE: int = 32
 const HALF_TILE: int = 16
 
-func _process(delta: float) -> void:
-	pass
-
 func attack_ranged():
 	pass
 

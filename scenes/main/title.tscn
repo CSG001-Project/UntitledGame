@@ -11,36 +11,20 @@ resource_name = "credits"
 script/source = "extends Button
 
 @onready var credits = $\"../../../Panel2\";
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-	
+
 func _pressed() -> void:
 	if (credits.visible == false):
 		credits.show();
 	else:
 		credits.hide();
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 "
 
 [sub_resource type="GDScript" id="GDScript_fd7cx"]
 resource_name = "exit"
 script/source = "extends Button
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 func _pressed():
 	get_tree().quit()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4m4n"]
@@ -51,19 +35,12 @@ resource_name = "exit"
 script/source = "extends Button
 
 @onready var credits = $\"..\";
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-	
+
 func _pressed() -> void:
 	if (credits.visible == false):
 		credits.show();
 	else:
 		credits.hide();
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 "
 
 [node name="Title" type="Node2D"]

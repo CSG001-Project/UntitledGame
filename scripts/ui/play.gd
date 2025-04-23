@@ -1,11 +1,5 @@
 extends Button
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
 func _pressed():
 	var new_scene = preload("res://scenes/main/main.tscn").instantiate()
 	var tree = get_tree()
@@ -14,7 +8,3 @@ func _pressed():
 		current_scene.queue_free()
 	tree.root.add_child(new_scene)
 	tree.current_scene = new_scene
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

@@ -146,5 +146,5 @@ offset = Vector2(0, -24)
 
 [node name="Harpoon" parent="." instance=ExtResource("7_hc5mu")]
 
-[node name="Deth" type="AudioStreamPlayer" parent="."]
+[node name="Death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_cjot3")

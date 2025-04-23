@@ -8,6 +8,6 @@ func _ready():
 	print(current_volume)
 
 # Called when the slider value changes
-func _value_changed(value):
-	var volume_db = (value)
+func _value_changed(new_value):
+	var volume_db = new_value
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(master_bus), volume_db)

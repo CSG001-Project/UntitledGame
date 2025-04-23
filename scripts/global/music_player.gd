@@ -29,9 +29,6 @@ func _ready() -> void:
 	
 	audio_player.finished.connect(_on_finished)
 
-func _process(delta: float) -> void:
-	pass
-
 func _on_finished():
 	if(song_repeated == 4):
 		if(curent_song == 5):

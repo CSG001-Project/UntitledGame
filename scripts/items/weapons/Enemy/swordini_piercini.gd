@@ -31,5 +31,5 @@ func hit() -> void:
 		hit_animation.play("hit animation")
 
 		
-		var target = raycast.get_collider()
-		target.get_parent().health.health -= 1
+		var collider = raycast.get_collider()
+		collider.get_parent().health.health -= 1

@@ -7,7 +7,7 @@ extends BaseCharacter
 @onready var health = $Health
 @onready var healthbar = $"../HUD/Control/HealthBar"
 @onready var weapon = $Beam
-@onready var deth = $Deth
+@onready var death = $Death
 
 var is_in_action: bool = false
 
@@ -65,10 +65,10 @@ func _physics_process(_delta: float) -> void:
 		weapon = $Beam
 
 
-func _on_health_changed(difference: int):
+func _on_health_changed(_difference: int):
 	healthbar.set_health_bar(self.health.health, self.health.max_health)
 	if self.health.health <= 0:
-		deth.play()
+		death.play()
 
 func get_input_axis() -> Vector2:
 	var input = Vector2.ZERO

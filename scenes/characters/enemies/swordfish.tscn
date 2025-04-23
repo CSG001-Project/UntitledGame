@@ -17,7 +17,7 @@ weapon = NodePath("SwordiniPiercini")
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_lmfu2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("3_shxoj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["enemy", "entity", "jelly"]]
@@ -32,6 +32,6 @@ shape = SubResource("RectangleShape2D_v5qhq")
 [node name="Movement" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_nq4ya")
 
-[node name="Deth" type="AudioStreamPlayer" parent="."]
+[node name="Death" type="AudioStreamPlayer" parent="."]
 
 [connection signal="health_depleted" from="Health" to="." method="die"]

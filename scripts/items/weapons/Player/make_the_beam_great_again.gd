@@ -30,8 +30,8 @@ func hit() -> void:
 		
 		# Check if the weapon hit something
 		if raycast.is_colliding():
-			var target = raycast.get_collider()
+			var collision = raycast.get_collider()
 			
 			# If it is an enemy, deal damage
-			if target.is_in_group("enemy"):
-				target.get_parent().damage(damage, 0);
+			if collision.is_in_group("enemy"):
+				collision.get_parent().damage(damage, 0);

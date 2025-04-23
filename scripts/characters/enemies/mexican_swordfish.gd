@@ -3,8 +3,8 @@ extends BaseEnemy
 
 @onready var sprite = $Sprite
 @onready var static_body = $StaticBody2D
-@onready var move = %Movement
-@onready var deth = $Deth
+@onready var move = $Movement
+@onready var death = $Death
 
 func _ready() -> void:
 	super()
@@ -42,7 +42,7 @@ func make_turn() -> void:
 # despawn / death explosion / etc
 func die() -> void:
 	super()
-	deth.play()
+	death.play()
 	queue_free()
 
 func update_sprite() -> void:
