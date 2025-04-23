@@ -1,0 +1,32 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://0y4jn5f6cv5v"]
+
+[sub_resource type="GDScript" id="GDScript_2c78c"]
+script/source = "extends Resource;
+
+@export var enemies = {
+	0: {
+		\"filepath\": \"res://scenes/characters/enemies/jellyfish.tscn\",
+		\"weapon\": \"\",
+		\"properties\": {
+			\"strength\": 1,
+			\"speed\": 1,
+			\"defence\": 1,
+		}
+	}
+}
+"
+
+[resource]
+resource_local_to_scene = true
+script = SubResource("GDScript_2c78c")
+enemies = {
+0: {
+"filepath": "res://scenes/characters/enemies/jellyfish.tscn",
+"properties": {
+"defence": 1,
+"speed": 1,
+"strength": 1
+},
+"weapon": ""
+}
+}
