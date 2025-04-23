@@ -1,0 +1,109 @@
+[gd_scene load_steps=17 format=3 uid="uid://ccb2edqeedqul"]
+
+[ext_resource type="Script" path="res://scripts/characters/enemies/crockodile.gd" id="1_temij"]
+[ext_resource type="Script" path="res://scripts/global/health.gd" id="2_byd6h"]
+[ext_resource type="PackedScene" uid="uid://32l1kip7b8xa" path="res://scenes/items/weapons/Swordini_Piercini.tscn" id="4_cb652"]
+[ext_resource type="Texture2D" uid="uid://ecx45lictai5" path="res://assets/sprites/characters/enemies/crocodile_L.png" id="5_adfhf"]
+[ext_resource type="AudioStream" uid="uid://cx225cv6g0kxl" path="res://assets/audio/effects/SwordFishDashPedro.wav" id="5_gqgl4"]
+[ext_resource type="Texture2D" uid="uid://bxr7glpopjin2" path="res://assets/sprites/characters/enemies/crocodile_R.png" id="6_5qv6l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5qhq"]
+size = Vector2(30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbyy2"]
+atlas = ExtResource("5_adfhf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vnjf"]
+atlas = ExtResource("5_adfhf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87yr5"]
+atlas = ExtResource("5_adfhf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncthx"]
+atlas = ExtResource("5_adfhf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjts7"]
+atlas = ExtResource("6_5qv6l")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xqhc"]
+atlas = ExtResource("6_5qv6l")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urmhl"]
+atlas = ExtResource("6_5qv6l")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nawkp"]
+atlas = ExtResource("6_5qv6l")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbpqt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbyy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vnjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87yr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncthx")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjts7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xqhc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urmhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nawkp")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 6.0
+}]
+
+[node name="Crockodili" type="Node2D" node_paths=PackedStringArray("weapon")]
+y_sort_enabled = true
+script = ExtResource("1_temij")
+weapon = NodePath("SwordiniPiercini")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_byd6h")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["enemy", "entity", "jelly"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_v5qhq")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="SwordiniPiercini" parent="." instance=ExtResource("4_cb652")]
+
+[node name="Movement" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gqgl4")
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_bbpqt")
+animation = &"idle_left"
+
+[connection signal="health_depleted" from="Health" to="." method="die"]

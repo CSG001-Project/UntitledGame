@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://be180qu0k3bgl"]
+
+[ext_resource type="Script" path="res://scripts/items/weapons/Player/harpoon.gd" id="1_t3giv"]
+[ext_resource type="Texture2D" uid="uid://s50i7tdbxhh1" path="res://assets/sprites/items/Super_Duper_Mega_Harpoooooon.png" id="2_cw61y"]
+[ext_resource type="AudioStream" uid="uid://dbkod2bqnriaj" path="res://assets/audio/effects/HawkTuaPedro.wav" id="3_iygx6"]
+[ext_resource type="Texture2D" uid="uid://batpsmy7soxgi" path="res://assets/sprites/effects/Enemy Hit Mark1.png" id="4_luam6"]
+[ext_resource type="Texture2D" uid="uid://bwoj6rufohy7d" path="res://assets/sprites/effects/Enemy Hit Mark2.png" id="5_h6tg3"]
+[ext_resource type="Texture2D" uid="uid://2p3he4ostpey" path="res://assets/sprites/effects/Enemy Hit Mark3.png" id="6_g5hrl"]
+[ext_resource type="Texture2D" uid="uid://c6as48yvl0s2m" path="res://assets/sprites/effects/Enemy Hit Mark4.png" id="7_o2kwi"]
+[ext_resource type="Texture2D" uid="uid://d0nab20j1acbv" path="res://assets/sprites/effects/Enemy Hit Mark5.png" id="8_p8sa5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wy5ir"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_luam6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h6tg3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g5hrl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_o2kwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p8sa5")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"hit animation",
+"speed": 5.0
+}]
+
+[node name="Harpoon" type="Node2D"]
+script = ExtResource("1_t3giv")
+weapon_range = 5
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, -32)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -16)
+texture = ExtResource("2_cw61y")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_iygx6")
+volume_db = 24.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_wy5ir")
+animation = &"hit animation"
+speed_scale = 3.0

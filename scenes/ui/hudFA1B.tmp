@@ -1,0 +1,330 @@
+[gd_scene load_steps=39 format=3 uid="uid://6wm2lqwsjp1u"]
+
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_8egb5"]
+[ext_resource type="Script" path="res://scripts/ui/status.gd" id="2_ofys1"]
+[ext_resource type="Texture2D" uid="uid://bsspc8n8jy4nc" path="res://assets/sprites/ui/status/status_back.png" id="3_u7h5u"]
+[ext_resource type="Texture2D" uid="uid://b5erh7ggsrbyv" path="res://assets/sprites/ui/status/slider_back.png" id="4_2k5qa"]
+[ext_resource type="Texture2D" uid="uid://ba14y5ox4x47t" path="res://assets/sprites/ui/status/slider.png" id="5_7u7nr"]
+[ext_resource type="Texture2D" uid="uid://bil113uehlmy4" path="res://assets/sprites/ui/status/lines.png" id="6_j2g1d"]
+[ext_resource type="FontFile" uid="uid://siqgy2ealc4t" path="res://assets/sprites/ui/font/grinon_script.fnt" id="7_7gop2"]
+[ext_resource type="AudioStream" uid="uid://c808heugtbtkr" path="res://assets/sounds/ui/pip.wav" id="8_rvoop"]
+[ext_resource type="AudioStream" uid="uid://bnsodsk7g4s3a" path="res://assets/sounds/ui/scroll.wav" id="9_yeb2w"]
+[ext_resource type="Texture2D" uid="uid://jwmtylfxvj1p" path="res://assets/sprites/ui/inventory.png" id="10_jsf8q"]
+[ext_resource type="Script" path="res://scenes/ui/inventory.gd" id="11_sei86"]
+[ext_resource type="Script" path="res://scripts/resources/item_data.gd" id="12_32u8j"]
+[ext_resource type="Resource" uid="uid://d2agg2ecvbl0x" path="res://assets/resources/spungly.tres" id="13_l1l33"]
+[ext_resource type="Script" path="res://scripts/resources/inventory_data.gd" id="14_dbeij"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idwiq"]
+atlas = ExtResource("4_2k5qa")
+region = Rect2(0, 0, 32, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krr4q"]
+atlas = ExtResource("5_7u7nr")
+region = Rect2(1, 1, 12, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cnrk"]
+atlas = ExtResource("5_7u7nr")
+region = Rect2(14, 0, 14, 18)
+margin = Rect2(0, -1, 0, -2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ieei"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wq61a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_njnb1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8p28k"]
+atlas = ExtResource("6_j2g1d")
+region = Rect2(0, 0, 256, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oglq5"]
+atlas = ExtResource("6_j2g1d")
+region = Rect2(256, 0, 256, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7giia"]
+atlas = ExtResource("6_j2g1d")
+region = Rect2(512, 0, 256, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0h4h"]
+atlas = ExtResource("6_j2g1d")
+region = Rect2(0, 16, 256, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6xhq"]
+atlas = ExtResource("6_j2g1d")
+region = Rect2(256, 16, 256, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plat1"]
+atlas = ExtResource("6_j2g1d")
+region = Rect2(512, 16, 256, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucr55"]
+atlas = ExtResource("6_j2g1d")
+region = Rect2(0, 32, 256, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja1ol"]
+atlas = ExtResource("6_j2g1d")
+region = Rect2(256, 32, 256, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_851ue"]
+atlas = ExtResource("6_j2g1d")
+region = Rect2(512, 32, 256, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8cn3"]
+atlas = ExtResource("6_j2g1d")
+region = Rect2(0, 48, 256, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax2xg"]
+atlas = ExtResource("6_j2g1d")
+region = Rect2(256, 48, 256, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xos6"]
+atlas = ExtResource("6_j2g1d")
+region = Rect2(512, 48, 256, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjbea"]
+atlas = ExtResource("6_j2g1d")
+region = Rect2(0, 64, 256, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10f83"]
+atlas = ExtResource("6_j2g1d")
+region = Rect2(256, 64, 256, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns2bu"]
+atlas = ExtResource("6_j2g1d")
+region = Rect2(512, 64, 256, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l8y78"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8p28k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oglq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7giia")
+}],
+"loop": false,
+"name": &"line1",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0h4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6xhq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plat1")
+}],
+"loop": false,
+"name": &"line2",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucr55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ja1ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_851ue")
+}],
+"loop": false,
+"name": &"line3",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8cn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax2xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xos6")
+}],
+"loop": false,
+"name": &"line4",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjbea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10f83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ns2bu")
+}],
+"loop": false,
+"name": &"line5",
+"speed": 12.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a13sb"]
+font = ExtResource("7_7gop2")
+font_size = 13
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_yhv2m"]
+script = ExtResource("14_dbeij")
+inventory = Array[ExtResource("12_32u8j")]([null, ExtResource("13_l1l33"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_8egb5")
+
+[node name="Status" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -112.0
+offset_right = 320.0
+grow_vertical = 0
+script = ExtResource("2_ofys1")
+
+[node name="StatusBack" type="TextureRect" parent="Status"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 112.0
+texture = ExtResource("3_u7h5u")
+
+[node name="SliderBack" type="TextureRect" parent="Status"]
+layout_mode = 0
+offset_left = 272.0
+offset_right = 304.0
+offset_bottom = 112.0
+texture = SubResource("AtlasTexture_idwiq")
+
+[node name="ScrollBar" type="VSlider" parent="Status"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 28.0
+offset_right = 304.0
+offset_bottom = 104.0
+focus_mode = 0
+theme_override_icons/grabber = SubResource("AtlasTexture_krr4q")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_8cnrk")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_krr4q")
+theme_override_styles/slider = SubResource("StyleBoxEmpty_0ieei")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_wq61a")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_njnb1")
+min_value = -6.0
+max_value = 0.0
+rounded = true
+
+[node name="Lines" type="Control" parent="Status"]
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 288.0
+offset_bottom = 96.0
+
+[node name="Line1" type="AnimatedSprite2D" parent="Status/Lines"]
+sprite_frames = SubResource("SpriteFrames_l8y78")
+animation = &"line1"
+frame = 2
+offset = Vector2(128, 8)
+
+[node name="Label" type="Label" parent="Status/Lines/Line1"]
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 77.0
+offset_bottom = 15.0
+label_settings = SubResource("LabelSettings_a13sb")
+
+[node name="Line2" type="AnimatedSprite2D" parent="Status/Lines"]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_l8y78")
+animation = &"line2"
+frame = 2
+offset = Vector2(128, 8)
+
+[node name="Label" type="Label" parent="Status/Lines/Line2"]
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 77.0
+offset_bottom = 15.0
+label_settings = SubResource("LabelSettings_a13sb")
+
+[node name="Line3" type="AnimatedSprite2D" parent="Status/Lines"]
+position = Vector2(0, 32)
+sprite_frames = SubResource("SpriteFrames_l8y78")
+animation = &"line3"
+frame = 2
+offset = Vector2(128, 8)
+
+[node name="Label" type="Label" parent="Status/Lines/Line3"]
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 77.0
+offset_bottom = 15.0
+label_settings = SubResource("LabelSettings_a13sb")
+
+[node name="Line4" type="AnimatedSprite2D" parent="Status/Lines"]
+position = Vector2(0, 48)
+sprite_frames = SubResource("SpriteFrames_l8y78")
+animation = &"line4"
+frame = 2
+offset = Vector2(128, 8)
+
+[node name="Label" type="Label" parent="Status/Lines/Line4"]
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 77.0
+offset_bottom = 15.0
+label_settings = SubResource("LabelSettings_a13sb")
+
+[node name="Line5" type="AnimatedSprite2D" parent="Status/Lines"]
+position = Vector2(0, 64)
+sprite_frames = SubResource("SpriteFrames_l8y78")
+animation = &"line5"
+offset = Vector2(128, 8)
+
+[node name="Label" type="Label" parent="Status/Lines/Line5"]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 76.0
+offset_bottom = 15.0
+label_settings = SubResource("LabelSettings_a13sb")
+
+[node name="PipSound" type="AudioStreamPlayer" parent="Status"]
+stream = ExtResource("8_rvoop")
+
+[node name="ScrollSound" type="AudioStreamPlayer" parent="Status"]
+stream = ExtResource("9_yeb2w")
+
+[node name="Inventory" type="TextureRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -112.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 0
+texture = ExtResource("10_jsf8q")
+script = ExtResource("11_sei86")
+inventory_data = SubResource("Resource_yhv2m")
+
+[node name="ItemGrid" type="GridContainer" parent="Inventory"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 304.0
+offset_bottom = 112.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 9
+
+[connection signal="value_changed" from="Status/ScrollBar" to="Status" method="_on_value_changed"]
+[connection signal="mouse_entered" from="Status/Lines" to="Status" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Status/Lines" to="Status" method="_on_mouse_exited"]

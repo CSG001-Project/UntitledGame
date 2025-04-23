@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8pkkmiw0sixk"]
+
+[ext_resource type="Script" path="res://scripts/items/weapons/Player/make_the_beam_great_again.gd" id="1_8p7q6"]
+[ext_resource type="Texture2D" uid="uid://dk2w8357r6mdf" path="res://assets/sprites/effects/LaserBeam.png" id="2_1fqg1"]
+[ext_resource type="AudioStream" uid="uid://cdc1gbdhu6tej" path="res://assets/audio/effects/BeamProper.wav" id="3_n41wv"]
+
+[node name="Beam" type="Node2D"]
+script = ExtResource("1_8p7q6")
+weapon_range = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-2, -22)
+scale = Vector2(0.768229, 1.10156)
+texture = ExtResource("2_1fqg1")
+
+[node name="RayCaster" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="RayCaster"]
+target_position = Vector2(0, -50)
+
+[node name="RayCast2D2" type="RayCast2D" parent="RayCaster"]
+target_position = Vector2(45, -45)
+
+[node name="RayCast2D3" type="RayCast2D" parent="RayCaster"]
+target_position = Vector2(-45, -45)
+
+[node name="RayCast2D4" type="RayCast2D" parent="RayCaster"]
+target_position = Vector2(-45, 0)
+
+[node name="RayCast2D5" type="RayCast2D" parent="RayCaster"]
+target_position = Vector2(45, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_n41wv")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true

@@ -1,0 +1,109 @@
+[gd_scene load_steps=17 format=3 uid="uid://p7e5e3k5rp44"]
+
+[ext_resource type="Script" path="res://scripts/characters/enemies/crockodile.gd" id="1_14mu4"]
+[ext_resource type="Script" path="res://scripts/global/health.gd" id="2_rhb51"]
+[ext_resource type="PackedScene" uid="uid://32l1kip7b8xa" path="res://scenes/items/weapons/Swordini_Piercini.tscn" id="4_yt3va"]
+[ext_resource type="AudioStream" uid="uid://cx225cv6g0kxl" path="res://assets/audio/effects/SwordFishDashPedro.wav" id="5_edj54"]
+[ext_resource type="Texture2D" uid="uid://dyovk252gxsky" path="res://assets/sprites/characters/enemies/manta_ray.L.png" id="5_ysqus"]
+[ext_resource type="Texture2D" uid="uid://5w84hk1vympn" path="res://assets/sprites/characters/enemies/manta_ray.R.png" id="6_63a36"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5qhq"]
+size = Vector2(30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcnxu"]
+atlas = ExtResource("5_ysqus")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g07cs"]
+atlas = ExtResource("5_ysqus")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chywm"]
+atlas = ExtResource("5_ysqus")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le3av"]
+atlas = ExtResource("5_ysqus")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmln0"]
+atlas = ExtResource("6_63a36")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaa3p"]
+atlas = ExtResource("6_63a36")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v144c"]
+atlas = ExtResource("6_63a36")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_871t4"]
+atlas = ExtResource("6_63a36")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbpqt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcnxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g07cs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chywm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le3av")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmln0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aaa3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v144c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_871t4")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 6.0
+}]
+
+[node name="Mantini" type="Node2D" node_paths=PackedStringArray("weapon")]
+y_sort_enabled = true
+script = ExtResource("1_14mu4")
+weapon = NodePath("SwordiniPiercini")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_rhb51")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["enemy", "entity", "jelly"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_v5qhq")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="SwordiniPiercini" parent="." instance=ExtResource("4_yt3va")]
+
+[node name="Movement" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_edj54")
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_bbpqt")
+animation = &"idle_right"
+
+[connection signal="health_depleted" from="Health" to="." method="die"]

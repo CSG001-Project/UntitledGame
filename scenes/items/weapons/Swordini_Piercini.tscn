@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://32l1kip7b8xa"]
+
+[ext_resource type="Script" path="res://scripts/items/weapons/Enemy/swordini_piercini.gd" id="1_e81lp"]
+[ext_resource type="Texture2D" uid="uid://2gk67f0ppqvp" path="res://assets/sprites/effects/swordpierce.png" id="2_3nwyu"]
+[ext_resource type="Texture2D" uid="uid://batpsmy7soxgi" path="res://assets/sprites/effects/Enemy Hit Mark1.png" id="3_206rx"]
+[ext_resource type="AudioStream" uid="uid://blu4idgow13ur" path="res://assets/audio/effects/swordswishdemo2.wav" id="3_vja3d"]
+[ext_resource type="Texture2D" uid="uid://bwoj6rufohy7d" path="res://assets/sprites/effects/Enemy Hit Mark2.png" id="4_0808e"]
+[ext_resource type="Texture2D" uid="uid://2p3he4ostpey" path="res://assets/sprites/effects/Enemy Hit Mark3.png" id="5_3rc8p"]
+[ext_resource type="Texture2D" uid="uid://c6as48yvl0s2m" path="res://assets/sprites/effects/Enemy Hit Mark4.png" id="6_nque4"]
+[ext_resource type="Texture2D" uid="uid://d0nab20j1acbv" path="res://assets/sprites/effects/Enemy Hit Mark5.png" id="7_v0mq1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hu72l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_206rx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0808e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3rc8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nque4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_v0mq1")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"hit animation",
+"speed": 5.0
+}]
+
+[node name="SwordiniPiercini" type="Node2D"]
+script = ExtResource("1_e81lp")
+weapon_range = 0
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, -32)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_3nwyu")
+offset = Vector2(0, -16)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_hu72l")
+animation = &"hit animation"
+speed_scale = 3.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vja3d")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1

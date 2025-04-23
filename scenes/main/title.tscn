@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=3 uid="uid://duthbmlkf15og"]
+
+[ext_resource type="Texture2D" uid="uid://8tu3qd0hmx8w" path="res://assets/ui/DocAp.png" id="1_mamuw"]
+[ext_resource type="Script" path="res://scripts/ui/play.gd" id="2_81rh8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2m8dk"]
+texture = ExtResource("1_mamuw")
+
+[sub_resource type="GDScript" id="GDScript_m4v3n"]
+resource_name = "credits"
+script/source = "extends Button
+
+@onready var credits = $\"../../../Panel2\";
+
+func _pressed() -> void:
+	if (credits.visible == false):
+		credits.show();
+	else:
+		credits.hide();
+"
+
+[sub_resource type="GDScript" id="GDScript_fd7cx"]
+resource_name = "exit"
+script/source = "extends Button
+
+func _pressed():
+	get_tree().quit()
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4m4n"]
+bg_color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[sub_resource type="GDScript" id="GDScript_a1q20"]
+resource_name = "exit"
+script/source = "extends Button
+
+@onready var credits = $\"..\";
+
+func _pressed() -> void:
+	if (credits.visible == false):
+		credits.show();
+	else:
+		credits.hide();
+"
+
+[node name="Title" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_2m8dk")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 639.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 64
+text = "Nautilus"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 186.0
+offset_top = 126.0
+offset_right = 469.0
+offset_bottom = 334.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+script = ExtResource("2_81rh8")
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+script = SubResource("GDScript_m4v3n")
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+script = SubResource("GDScript_fd7cx")
+
+[node name="Panel2" type="Panel" parent="."]
+visible = false
+offset_right = 640.0
+offset_bottom = 360.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p4m4n")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel2"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+bbcode_enabled = true
+text = "[center]
+CREDITS:
+NAME HERE
+NAME HERE
+NAME HERE
+NAME HERE
+NAME HERE
+NAME HERE
+NAME HERE
+NAME HERE
+NAME HERE
+NAME HERE
+NAME HERE
+NAME HERE
+NAME HERE
+[/center]"
+scroll_active = false
+
+[node name="Button" type="Button" parent="Panel2"]
+layout_mode = 0
+offset_left = 603.0
+offset_right = 640.0
+offset_bottom = 31.0
+text = "X"
+script = SubResource("GDScript_a1q20")

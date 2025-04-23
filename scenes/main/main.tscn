@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1n4cngpp7o2e"]
+
+[ext_resource type="PackedScene" uid="uid://cges8fuc52cx0" path="res://scenes/levels/level_0.tscn" id="2_2ehvs"]
+[ext_resource type="PackedScene" uid="uid://b1im14ilejp1q" path="res://scenes/characters/player.tscn" id="2_d8asp"]
+[ext_resource type="PackedScene" uid="uid://c632gx50g5qbs" path="res://scenes/characters/enemies/jellyfish.tscn" id="3_r1d4u"]
+[ext_resource type="PackedScene" uid="uid://45exv7p7tkwy" path="res://scenes/ui/hud.tscn" id="4_2yll4"]
+[ext_resource type="Script" path="res://scripts/ui/camera.gd" id="4_cc31c"]
+[ext_resource type="PackedScene" uid="uid://ccb2edqeedqul" path="res://scenes/characters/enemies/crockodildo.tscn" id="7_0ljcb"]
+[ext_resource type="PackedScene" uid="uid://cn0xbgxhgdgsg" path="res://scenes/characters/enemies/swordfish.tscn" id="7_o73f4"]
+[ext_resource type="PackedScene" uid="uid://p7e5e3k5rp44" path="res://scenes/characters/enemies/mantini.tscn" id="8_k262t"]
+
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Level0" parent="." instance=ExtResource("2_2ehvs")]
+
+[node name="Swordfish" parent="." instance=ExtResource("7_o73f4")]
+position = Vector2(144, 240)
+
+[node name="Jellyfish" parent="." instance=ExtResource("3_r1d4u")]
+position = Vector2(400, 144)
+
+[node name="Jellyfish2" parent="." instance=ExtResource("3_r1d4u")]
+position = Vector2(400, 272)
+
+[node name="Jellyfish3" parent="." instance=ExtResource("3_r1d4u")]
+position = Vector2(464, 240)
+
+[node name="Player" parent="." instance=ExtResource("2_d8asp")]
+position = Vector2(336, 176)
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-336, -176)
+anchor_mode = 0
+process_callback = 0
+limit_left = 50
+limit_top = 0
+limit_right = 775
+limit_bottom = 450
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 1.0
+script = ExtResource("4_cc31c")
+
+[node name="HUD" parent="." instance=ExtResource("4_2yll4")]
+follow_viewport_enabled = false
+
+[node name="Crockodili" parent="." instance=ExtResource("7_0ljcb")]
+position = Vector2(176, 272)
+
+[node name="Crockodili2" parent="." instance=ExtResource("8_k262t")]
+position = Vector2(208, 176)
