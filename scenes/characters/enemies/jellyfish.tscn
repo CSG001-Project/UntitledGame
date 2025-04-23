@@ -1,11 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://c632gx50g5qbs"]
+[gd_scene load_steps=22 format=3 uid="uid://c632gx50g5qbs"]
 
-[ext_resource type="Script" uid="uid://bo251myna30mo" path="res://scripts/characters/enemies/jellyfish.gd" id="1_81cih"]
-[ext_resource type="Script" uid="uid://b0gah42f072hk" path="res://scripts/global/health.gd" id="2_dvh32"]
+[ext_resource type="Script" path="res://scripts/characters/enemies/jellyfish.gd" id="1_81cih"]
+[ext_resource type="Script" path="res://scripts/global/health.gd" id="2_dvh32"]
 [ext_resource type="Texture2D" uid="uid://34nx0djawpg6" path="res://assets/sprites/characters/enemies/jellyfish/jellyfish_idle_left.png" id="3_funfx"]
 [ext_resource type="Texture2D" uid="uid://b3jufdv6lrlur" path="res://assets/sprites/characters/enemies/jellyfish/jellyfish_idle_right.png" id="4_88ujr"]
-[ext_resource type="Script" uid="uid://vut8v3fm2l85" path="res://scripts/items/weapons/Enemy/jellyfish_caboom.gd" id="5_obybg"]
+[ext_resource type="Script" path="res://scripts/items/weapons/Enemy/jellyfish_caboom.gd" id="5_obybg"]
 [ext_resource type="PackedScene" uid="uid://dgdeyv7f65pb4" path="res://scenes/items/weapons/jelly_support.tscn" id="6_64imj"]
+[ext_resource type="Script" path="res://scripts/items/weapons/Enemy/jelly_support.gd" id="7_wr8rp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_51o5t"]
 atlas = ExtResource("3_funfx")
@@ -130,123 +131,163 @@ script = ExtResource("5_obybg")
 
 [node name="JellySupport" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(-32, 0)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport2" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(32, 0)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport3" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(64, 0)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport4" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(96, 0)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport5" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(128, 0)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport6" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(-64, 0)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport7" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(-96, 0)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport8" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(-128, 0)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport9" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(0, 32)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport10" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(0, 64)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport11" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(0, 96)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport12" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(0, 128)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport13" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(0, -32)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport14" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(0, -64)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport15" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(0, -96)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport16" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(0, -128)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport17" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(32, 32)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport18" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(64, 32)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport19" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(96, 32)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport20" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(-32, 32)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport21" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(-64, 32)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport22" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(-96, 32)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport23" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(32, -32)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport24" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(64, -32)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport25" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(96, -32)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport26" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(-32, -32)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport27" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(-64, -32)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport28" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(-96, -32)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport29" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(32, 64)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport30" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(64, 64)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport31" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(-32, 64)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport32" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(-64, 64)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport33" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(32, 96)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport34" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(-32, -96)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport35" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(-32, 96)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport36" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(32, -64)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport37" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(64, -64)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport38" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(-32, -64)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport39" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(-64, -64)
+script = ExtResource("7_wr8rp")
 
 [node name="JellySupport40" parent="JellyCaboom" instance=ExtResource("6_64imj")]
 position = Vector2(32, -96)
+script = ExtResource("7_wr8rp")
 
 [node name="Timer" type="Timer" parent="."]
 

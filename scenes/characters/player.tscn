@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://b1im14ilejp1q"]
 
-[ext_resource type="Script" uid="uid://clki4mtdpw818" path="res://scripts/characters/player.gd" id="1_mvto6"]
-[ext_resource type="Script" uid="uid://b0gah42f072hk" path="res://scripts/global/health.gd" id="2_75q18"]
+[ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_mvto6"]
+[ext_resource type="Script" path="res://scripts/global/health.gd" id="2_75q18"]
 [ext_resource type="Texture2D" uid="uid://dtfybu71qayc5" path="res://assets/sprites/ui/arrow.png" id="2_s8lw0"]
 [ext_resource type="Texture2D" uid="uid://dd1e5dqsxs3cx" path="res://assets/sprites/characters/player/player_idle_left.png" id="4_ono01"]
 [ext_resource type="Texture2D" uid="uid://ca2ux1o4oiu35" path="res://assets/sprites/characters/player/player_idle_right.png" id="5_tnchy"]
