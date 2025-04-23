@@ -3,6 +3,8 @@ extends BaseEnemy
 
 @onready var sprite = $Sprite
 @onready var static_body = $StaticBody2D
+@onready var move = %Movement
+@onready var deth = $Deth
 
 func _ready() -> void:
 	super()
@@ -30,15 +32,17 @@ func make_turn() -> void:
 		var new_position = Vector2(32,0).rotated(randi_range(0,3)*deg_to_rad(90))
 		
 		if !static_body.test_move(transform, new_position):
+			move.play()
 			static_body.position += new_position
 	elif path:
 		if !static_body.test_move(transform, to_local(path[0])):
+			move.play()
 			static_body.position = path[0]
 
 # despawn / death explosion / etc
 func die() -> void:
 	super()
-	
+	deth.play()
 	queue_free()
 
 func update_sprite() -> void:

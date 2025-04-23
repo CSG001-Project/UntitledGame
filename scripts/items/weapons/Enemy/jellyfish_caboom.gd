@@ -6,12 +6,16 @@ signal attack
 var friends = []
 
 @onready var timer = get_parent().get_node("Timer")
+@onready var electricity = $AudioStreamPlayer
 
 func attack_ranged():
+	electricity.play()
 	look_for_friends()
 	#this implementation is obviously bad performance wise
 	#but I could not figure out a better way to do that with same flexebility
 	for i in self.get_children():
+		if i == electricity:
+			continue
 		var relative = MishaMath.relative_grid(i.global_position, global_position)
 		if abs(relative.x) + abs(relative.y) < weapon_range:
 			if not check_wall(global_position, i.global_position):
@@ -24,6 +28,8 @@ func attack_ranged():
 	await timer.timeout
 	
 	for i in self.get_children():
+		if i == electricity:
+			continue
 		i.visible = false
 		i.is_used = false
 

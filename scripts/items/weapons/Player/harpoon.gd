@@ -5,6 +5,7 @@ class_name Harpoon
 @onready var sprite = $Sprite2D
 @onready var raycast = $RayCast2D
 @onready var sound = $AudioStreamPlayer
+@onready var hit_animation = $AnimatedSprite2D
 
 func _process(delta: float) -> void:
 	var speed: float = 100

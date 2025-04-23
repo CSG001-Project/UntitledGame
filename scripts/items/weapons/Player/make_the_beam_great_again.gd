@@ -3,9 +3,6 @@ class_name Beam
 
 @onready var timer = $Timer
 @onready var sprite = $Sprite2D
-@onready var sprite2 = $Sprite2D2
-@onready var sprite3 = $Sprite2D3
-@onready var sprite4 = $Sprite2D4
 @onready var raycaster = $RayCaster
 @onready var sound = $AudioStreamPlayer
 @onready var raycasts = raycaster.get_children()
@@ -23,15 +20,9 @@ func attack_melee():
 	
 	# Flash the beam texture
 	sprite.visible = true
-	sprite2.visible = true
-	sprite3.visible = true
-	sprite4.visible = true
 	timer.start()
 	await timer.timeout
 	sprite.visible = false
-	sprite2.visible = false
-	sprite3.visible = false
-	sprite4.visible = false
 
 func hit() -> void:
 	for raycast in raycasts:

@@ -5,6 +5,7 @@ class_name SwordiniPiercini
 @onready var sprite = $Sprite2D
 @onready var raycast = $RayCast2D
 @onready var sound = $AudioStreamPlayer
+@onready var hit_animation = $AnimatedSprite2D
 
 func attack_melee():
 	sound.play()
@@ -25,6 +26,10 @@ func attack_melee():
 
 func hit() -> void:
 	# Check if the weapon hit something
+	raycast.force_raycast_update()
 	if raycast.is_colliding():
+		hit_animation.play("hit animation")
+
+		
 		var target = raycast.get_collider()
 		target.get_parent().health.health -= 1
