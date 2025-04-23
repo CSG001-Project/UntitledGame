@@ -79,9 +79,10 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="Mantini" type="Node2D"]
+[node name="Mantini" type="Node2D" node_paths=PackedStringArray("weapon")]
 y_sort_enabled = true
 script = ExtResource("1_14mu4")
+weapon = NodePath("SwordiniPiercini")
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("2_rhb51")
